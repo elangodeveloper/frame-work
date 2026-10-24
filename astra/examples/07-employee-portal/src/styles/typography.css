@@ -1,0 +1,51 @@
+/**
+ * JARVIS Centralized Typography
+ */
+
+.jarvis-heading-xl {
+  font-family: var(--jarvis-font-sans);
+  font-size: var(--jarvis-font-size-3xl);
+  font-weight: var(--jarvis-font-weight-extrabold);
+  line-height: var(--jarvis-line-height-tight);
+  letter-spacing: -0.03em;
+  color: var(--jarvis-color-text-primary);
+}
+
+.jarvis-heading-lg {
+  font-family: var(--jarvis-font-sans);
+  font-size: var(--jarvis-font-size-2xl);
+  font-weight: var(--jarvis-font-weight-bold);
+  line-height: var(--jarvis-line-height-tight);
+  letter-spacing: -0.02em;
+  color: var(--jarvis-color-text-primary);
+}
+
+.jarvis-heading-md {
+  font-family: var(--jarvis-font-sans);
+  font-size: var(--jarvis-font-size-xl);
+  font-weight: var(--jarvis-font-weight-semibold);
+  line-height: var(--jarvis-line-height-snug);
+  letter-spacing: -0.01em;
+  color: var(--jarvis-color-text-primary);
+}
+
+.jarvis-body-text {
+  font-family: var(--jarvis-font-sans);
+  font-size: var(--jarvis-font-size-sm);
+  font-weight: var(--jarvis-font-weight-regular);
+  line-height: var(--jarvis-line-height-normal);
+  color: var(--jarvis-color-text-secondary);
+}
+
+.jarvis-caption {
+  font-family: var(--jarvis-font-sans);
+  font-size: var(--jarvis-font-size-xs);
+  font-weight: var(--jarvis-font-weight-medium);
+  line-height: var(--jarvis-line-height-normal);
+  color: var(--jarvis-color-text-muted);
+}
+
+.jarvis-code {
+  font-family: var(--jarvis-font-mono);
+  font-size: var(--jarvis-font-size-xs);
+}

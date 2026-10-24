@@ -1,0 +1,27 @@
+/**
+ * JARVIS Themes
+ * Supports Light & Dark modes via [data-jarvis-theme]
+ */
+
+[data-jarvis-theme="light"],
+:root {
+  --jarvis-color-background: #fbfcfb;
+  --jarvis-color-surface: #ffffff;
+  --jarvis-color-surface-muted: #f1f5f3;
+  --jarvis-color-text-primary: #0f172a;
+  --jarvis-color-text-secondary: #475569;
+  --jarvis-color-text-muted: #94a3b8;
+  --jarvis-color-border: #e2e8e4;
+  --jarvis-color-border-hover: #cbd5cf;
+}
+
+[data-jarvis-theme="dark"] {
+  --jarvis-color-background: #090e17;
+  --jarvis-color-surface: #0f1726;
+  --jarvis-color-surface-muted: #162235;
+  --jarvis-color-text-primary: #f8fafc;
+  --jarvis-color-text-secondary: #94a3b8;
+  --jarvis-color-text-muted: #64748b;
+  --jarvis-color-border: rgba(255, 255, 255, 0.1);
+  --jarvis-color-border-hover: rgba(255, 255, 255, 0.2);
+}

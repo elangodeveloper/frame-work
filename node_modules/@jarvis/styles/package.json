@@ -1,0 +1,8 @@
+{
+  "name": "@jarvis/styles",
+  "version": "0.1.0",
+  "description": "Centralized CSS Architecture, Design Tokens, and Reusable Styling System for JARVIS Framework",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "type": "module"
+}

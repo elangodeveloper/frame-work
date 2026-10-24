@@ -1,0 +1,22 @@
+---
+source: tests/snapshots.rs
+expression: js
+---
+/**
+ * Compiled Jarvis View Factory
+ */
+export function template(renderer, ctx) {
+  const n0 = renderer.createElement('div');
+  renderer.setAttribute(n0, 'class', 'user-card');
+  const n1 = renderer.createElement('h1');
+  renderer.appendChild(n0, n1);
+  const n2 = renderer.createText('');
+  renderer.bindText(n2, () => ctx.title());
+  renderer.appendChild(n1, n2);
+  const n3 = renderer.createElement('p');
+  renderer.appendChild(n0, n3);
+  const n4 = renderer.createText('');
+  renderer.bindText(n4, () => ctx.subtitle());
+  renderer.appendChild(n3, n4);
+  return { root: n0 };
+}

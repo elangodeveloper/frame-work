@@ -1,0 +1,48 @@
+{
+  "compiler": {
+    "template100LinesCompileMs": 4.055,
+    "templates1000ColdCompileMs": 42.54,
+    "hmrRoundtripMs": 0.16,
+    "criterion": {
+      "simpleTemplateUs": 6.92,
+      "complexTemplateUs": 42.73,
+      "lexerUs": 5.58,
+      "parserUs": 21.26,
+      "codegenUs": 20.95,
+      "templates100ParallelUs": 890.2
+    }
+  },
+  "bundleSizes": {
+    "coreRuntimeRawBytes": 6658,
+    "coreRuntimeGzipBytes": 2315,
+    "coreRuntimeGzipKb": 2.26,
+    "helloWorldRawBytes": 3857,
+    "helloWorldGzipBytes": 1504,
+    "helloWorldGzipKb": 1.47,
+    "routerRawBytes": 15642,
+    "routerGzipBytes": 4794,
+    "routerGzipKb": 4.68,
+    "demoAppGzipKb": 7.36
+  },
+  "runtime": {
+    "create1000RowsJarvisMs": 4.314,
+    "create1000RowsVanillaMs": 1.658,
+    "create10000RowsJarvisMs": 25.391,
+    "create10000RowsVanillaMs": 22.025,
+    "update10thRowJarvisMs": 0.338,
+    "update10thRowVanillaMs": 0.139,
+    "swapRowsJarvisMs": 0.207,
+    "swapRowsVanillaMs": 0.029,
+    "selectRowJarvisMs": 0.5,
+    "selectRowVanillaMs": 0.118,
+    "removeRowJarvisMs": 0.173,
+    "removeRowVanillaMs": 0.061,
+    "clearJarvisMs": 0.197,
+    "clearVanillaMs": 0.003,
+    "geometricMeanRatio": 4.565,
+    "syncNavMs": 0.192,
+    "paramChangeNavMs": 0.065,
+    "lazyNavMs": 0.087,
+    "leakTestRemainingLiveEffects": 0
+  }
+}

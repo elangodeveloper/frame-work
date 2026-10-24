@@ -1,0 +1,29 @@
+/**
+ * JARVIS Predictable Layout & Utility Classes
+ */
+@layer jarvis-utilities {
+  .jarvis-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--jarvis-space-4);
+    padding-right: var(--jarvis-space-4);
+    max-width: 1200px;
+  }
+
+  .jarvis-flex { display: flex; }
+  .jarvis-flex-col { display: flex; flex-direction: column; }
+  .jarvis-items-center { align-items: center; }
+  .jarvis-justify-between {-justify-content: space-between; }
+  .jarvis-justify-end { justify-content: flex-end; }
+
+  .jarvis-gap-1 { gap: var(--jarvis-space-1); }
+  .jarvis-gap-2 { gap: var(--jarvis-space-2); }
+  .jarvis-gap-3 { gap: var(--jarvis-space-3); }
+  .jarvis-gap-4 { gap: var(--jarvis-space-4); }
+
+  .jarvis-p-2 { padding: var(--jarvis-space-2); }
+  .jarvis-p-4 { padding: var(--jarvis-space-4); }
+  .jarvis-m-0 { margin: 0; }
+  .jarvis-w-full { width: 100%; }
+}

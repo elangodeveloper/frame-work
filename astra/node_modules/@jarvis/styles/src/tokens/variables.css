@@ -1,0 +1,78 @@
+/**
+ * JARVIS Centralized Design Tokens
+ * Prefix: --jarvis-
+ */
+:root {
+  /* Color Primitives */
+  --jarvis-color-primary: #2563eb;
+  --jarvis-color-primary-hover: #1d4ed8;
+  --jarvis-color-primary-active: #1e40af;
+  --jarvis-color-primary-contrast: #ffffff;
+
+  --jarvis-color-secondary: #475569;
+  --jarvis-color-secondary-hover: #334155;
+  --jarvis-color-secondary-contrast: #ffffff;
+
+  --jarvis-color-success: #16a34a;
+  --jarvis-color-warning: #d97706;
+  --jarvis-color-danger: #dc2626;
+
+  /* Surfaces & Canvas */
+  --jarvis-surface: #ffffff;
+  --jarvis-surface-secondary: #f8fafc;
+  --jarvis-surface-tertiary: #f1f5f9;
+
+  /* Typography Colors */
+  --jarvis-text-primary: #0f172a;
+  --jarvis-text-secondary: #475569;
+  --jarvis-text-muted: #94a3b8;
+
+  /* Borders & Dividers */
+  --jarvis-border-color: #cbd5e1;
+  --jarvis-border-color-subtle: #e2e8f0;
+  --jarvis-border-width: 1px;
+
+  /* Spacing Scale (Based on 0.25rem = 4px) */
+  --jarvis-space-0: 0;
+  --jarvis-space-1: 0.25rem;
+  --jarvis-space-2: 0.5rem;
+  --jarvis-space-3: 0.75rem;
+  --jarvis-space-4: 1rem;
+  --jarvis-space-5: 1.25rem;
+  --jarvis-space-6: 1.5rem;
+  --jarvis-space-8: 2rem;
+  --jarvis-space-10: 2.5rem;
+  --jarvis-space-12: 3rem;
+
+  /* Border Radii */
+  --jarvis-radius-none: 0;
+  --jarvis-radius-sm: 0.25rem;
+  --jarvis-radius-md: 0.375rem;
+  --jarvis-radius-lg: 0.5rem;
+  --jarvis-radius-xl: 0.75rem;
+  --jarvis-radius-full: 9999px;
+
+  /* Typography Scale */
+  --jarvis-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --jarvis-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --jarvis-font-size-xs: 0.75rem;
+  --jarvis-font-size-sm: 0.875rem;
+  --jarvis-font-size-md: 1rem;
+  --jarvis-font-size-lg: 1.125rem;
+  --jarvis-font-size-xl: 1.25rem;
+  --jarvis-font-size-2xl: 1.5rem;
+  --jarvis-line-height-tight: 1.25;
+  --jarvis-line-height-normal: 1.5;
+  --jarvis-line-height-relaxed: 1.625;
+
+  /* Box Shadows */
+  --jarvis-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --jarvis-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --jarvis-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  /* Focus & Accessibility */
+  --jarvis-focus-ring-width: 2px;
+  --jarvis-focus-ring-color: rgba(37, 99, 235, 0.5);
+  --jarvis-focus-ring-offset: 2px;
+  --jarvis-transition-duration: 0.15s;
+}

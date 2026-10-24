@@ -1,0 +1,31 @@
+.home-hero {
+  padding: 3rem 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.metrics {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.metric-card {
+  padding: 1.5rem;
+  background: #f1f5f9;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0284c7;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #64748b;
+}

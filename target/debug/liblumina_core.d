@@ -1,0 +1,1 @@
+C:\Developer\frame-work\target\debug\liblumina_core.rlib: C:\Developer\frame-work\crates\lumina-core\src\diagnostic.rs C:\Developer\frame-work\crates\lumina-core\src\interner.rs C:\Developer\frame-work\crates\lumina-core\src\lib.rs C:\Developer\frame-work\crates\lumina-core\src\source.rs C:\Developer\frame-work\crates\lumina-core\src\span.rs

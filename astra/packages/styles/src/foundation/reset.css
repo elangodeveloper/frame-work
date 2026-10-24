@@ -1,0 +1,27 @@
+/**
+ * JARVIS Foundation Reset & Box Model
+ */
+@layer jarvis-base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: var(--jarvis-font-family);
+    line-height: var(--jarvis-line-height-normal);
+    color: var(--jarvis-text-primary);
+    background-color: var(--jarvis-surface);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  :focus-visible {
+    outline: var(--jarvis-focus-ring-width) solid var(--jarvis-focus-ring-color);
+    outline-offset: var(--jarvis-focus-ring-offset);
+  }
+}

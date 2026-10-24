@@ -1,0 +1,104 @@
+/* Component-specific styling for AuthBrandPanelComponent */
+.brand-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--jarvis-space-8);
+  position: relative;
+  z-index: 2;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-3);
+}
+
+.brand-logo-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.3));
+}
+
+.brand-name {
+  font-size: var(--jarvis-font-size-lg);
+  font-weight: var(--jarvis-font-weight-extrabold);
+  letter-spacing: -0.02em;
+  color: var(--jarvis-hero-text);
+  line-height: 1.1;
+}
+
+.portal-label {
+  font-size: 0.65rem;
+  font-weight: var(--jarvis-font-weight-bold);
+  letter-spacing: 0.18em;
+  color: var(--jarvis-brand-accent);
+}
+
+.brand-hero-section {
+  position: relative;
+  z-index: 2;
+  margin-block: auto;
+}
+
+.brand-headline {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: var(--jarvis-font-weight-extrabold);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  color: var(--jarvis-hero-text);
+  margin-bottom: var(--jarvis-space-4);
+}
+
+.brand-supporting-copy {
+  font-size: var(--jarvis-font-size-base);
+  color: var(--jarvis-hero-text-muted);
+  line-height: var(--jarvis-line-height-relaxed);
+  max-width: 32rem;
+  margin-bottom: var(--jarvis-space-6);
+}
+
+.brand-illustration-wrapper {
+  margin-bottom: var(--jarvis-space-6);
+}
+
+.brand-illustration {
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.4));
+}
+
+.brand-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarvis-space-3);
+  max-width: 34rem;
+}
+
+.feature-title {
+  font-size: var(--jarvis-font-size-sm);
+  font-weight: var(--jarvis-font-weight-semibold);
+  color: var(--jarvis-hero-text);
+  margin: 0;
+}
+
+.feature-desc {
+  font-size: var(--jarvis-font-size-xs);
+  color: var(--jarvis-hero-text-muted);
+  line-height: var(--jarvis-line-height-normal);
+  margin: 0.2rem 0 0 0;
+}
+
+.brand-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--jarvis-font-size-xs);
+  color: rgba(148, 163, 184, 0.6);
+  border-top: 1px solid var(--jarvis-hero-border);
+  padding-top: var(--jarvis-space-4);
+  margin-top: var(--jarvis-space-8);
+  position: relative;
+  z-index: 2;
+}

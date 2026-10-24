@@ -1,0 +1,19 @@
+---
+source: tests/snapshots.rs
+expression: js
+---
+/**
+ * Compiled Jarvis View Factory
+ */
+export function template(renderer, ctx) {
+  const n0 = renderer.createText('');
+  // @for (item of ctx.items(); track ctx.item.id)
+  for (const item of (ctx.items() || [])) {
+    const n1 = renderer.createElement('div');
+    renderer.setAttribute(n1, 'class', 'item');
+    const n2 = renderer.createText('');
+    renderer.bindText(n2, () => ctx.item.name);
+    renderer.appendChild(n1, n2);
+  }
+  return { root: n0 };
+}

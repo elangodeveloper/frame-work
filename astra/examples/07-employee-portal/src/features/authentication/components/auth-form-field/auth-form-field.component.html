@@ -1,0 +1,16 @@
+<div class="jarvis-form-group">
+  <div class="form-label-row">
+    <label class="jarvis-form-label" for="{{ htmlFor() }}">
+      {{ label() }}
+      <span *ngIf="required()" class="required-indicator" aria-hidden="true">*</span>
+    </label>
+  </div>
+  <div class="form-control-slot">
+    <!-- Projected control slot -->
+  </div>
+  <p *ngIf="hint()" class="jarvis-form-hint">{{ hint() }}</p>
+  <div *ngIf="error()" class="jarvis-form-error" role="alert">
+    <i class="pi pi-exclamation-circle"></i>
+    <span>{{ error() }}</span>
+  </div>
+</div>

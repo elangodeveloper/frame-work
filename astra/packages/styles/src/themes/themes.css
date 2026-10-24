@@ -1,0 +1,41 @@
+/**
+ * JARVIS Theming System
+ */
+:root,
+[data-jarvis-theme="light"] {
+  color-scheme: light;
+  --jarvis-surface: #ffffff;
+  --jarvis-surface-secondary: #f8fafc;
+  --jarvis-surface-tertiary: #f1f5f9;
+  --jarvis-text-primary: #0f172a;
+  --jarvis-text-secondary: #475569;
+  --jarvis-text-muted: #94a3b8;
+  --jarvis-border-color: #cbd5e1;
+  --jarvis-border-color-subtle: #e2e8f0;
+}
+
+[data-jarvis-theme="dark"] {
+  color-scheme: dark;
+  --jarvis-surface: #0f172a;
+  --jarvis-surface-secondary: #1e293b;
+  --jarvis-surface-tertiary: #334155;
+  --jarvis-text-primary: #f8fafc;
+  --jarvis-text-secondary: #cbd5e1;
+  --jarvis-text-muted: #64748b;
+  --jarvis-border-color: #334155;
+  --jarvis-border-color-subtle: #1e293b;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-jarvis-theme="system"] {
+    color-scheme: dark;
+    --jarvis-surface: #0f172a;
+    --jarvis-surface-secondary: #1e293b;
+    --jarvis-surface-tertiary: #334155;
+    --jarvis-text-primary: #f8fafc;
+    --jarvis-text-secondary: #cbd5e1;
+    --jarvis-text-muted: #64748b;
+    --jarvis-border-color: #334155;
+    --jarvis-border-color-subtle: #1e293b;
+  }
+}

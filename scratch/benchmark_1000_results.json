@@ -1,0 +1,38 @@
+[
+  {
+    "scenario": "Text change",
+    "unitsRecompiled": 1,
+    "dependentsRecompiled": 0,
+    "compileMs": 0.58,
+    "hmrMs": 1.12,
+    "bytesSent": 131,
+    "statePreserved": true
+  },
+  {
+    "scenario": "Binding change",
+    "unitsRecompiled": 1,
+    "dependentsRecompiled": 0,
+    "compileMs": 0.55,
+    "hmrMs": 0.66,
+    "bytesSent": 176,
+    "statePreserved": true
+  },
+  {
+    "scenario": "CSS change",
+    "unitsRecompiled": 1,
+    "dependentsRecompiled": 0,
+    "compileMs": 0.4,
+    "hmrMs": 0.09,
+    "bytesSent": 96,
+    "statePreserved": true
+  },
+  {
+    "scenario": "Interface change",
+    "unitsRecompiled": 11,
+    "dependentsRecompiled": 10,
+    "compileMs": 1.9,
+    "hmrMs": 0.09,
+    "bytesSent": 456,
+    "statePreserved": true
+  }
+]

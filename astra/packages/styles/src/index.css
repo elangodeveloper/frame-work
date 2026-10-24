@@ -1,0 +1,12 @@
+/**
+ * JARVIS Framework Centralized Stylesheet Entrypoint
+ * Declares CSS cascade layer order:
+ */
+@layer theme, jarvis-base, primeng, jarvis-components, jarvis-utilities, tailwind;
+
+@import "./tokens/variables.css";
+@import "./foundation/reset.css";
+@import "./themes/themes.css";
+@import "./components/components.css";
+@import "./layout.css";
+@import "./utilities/utilities.css";

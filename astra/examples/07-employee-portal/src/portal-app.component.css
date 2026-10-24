@@ -1,0 +1,31 @@
+/* Component-level styles for PortalAppComponent */
+.jarvis-auth-split {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(24rem, 0.9fr);
+  background: var(--jarvis-color-background);
+  transition: grid-template-columns 0.25s ease;
+}
+
+/* Expansive layout mode for Employee Dashboard */
+.jarvis-auth-split--dashboard {
+  grid-template-columns: minmax(280px, 0.65fr) minmax(0, 2.35fr);
+}
+
+.jarvis-auth-panel--dashboard {
+  justify-content: flex-start !important;
+  padding: clamp(1.25rem, 3vw, 2.5rem) !important;
+}
+
+.jarvis-auth-content--dashboard {
+  max-width: 76rem !important;
+  width: 100% !important;
+}
+
+@media (max-width: 64rem) {
+  .jarvis-auth-split,
+  .jarvis-auth-split--dashboard {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+

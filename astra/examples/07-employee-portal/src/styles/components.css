@@ -1,0 +1,258 @@
+/**
+ * JARVIS Common Component Contracts & Styling
+ */
+
+@layer jarvis-components {
+  /* Reusable Split Screen Container */
+  .jarvis-auth-split {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(24rem, 0.9fr);
+    background: var(--jarvis-color-background);
+  }
+
+  @media (max-width: 64rem) {
+    .jarvis-auth-split {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* Left Brand Panel Container */
+  .jarvis-brand-panel {
+    background: var(--jarvis-hero-bg);
+    color: var(--jarvis-hero-text);
+    padding: clamp(2rem, 5vw, 4.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    border-right: 1px solid var(--jarvis-hero-border);
+  }
+
+  @media (max-width: 64rem) {
+    .jarvis-brand-panel {
+      display: none;
+    }
+  }
+
+  .jarvis-auth-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--jarvis-login-panel-padding);
+    background: var(--jarvis-color-background);
+    overflow-y: auto;
+  }
+
+  .jarvis-auth-panel--dashboard {
+    justify-content: flex-start;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+  }
+
+  .jarvis-auth-content {
+    width: 100%;
+    max-width: var(--jarvis-content-max-width);
+    margin-inline: auto;
+  }
+
+  .jarvis-auth-content--dashboard {
+    max-width: 76rem;
+  }
+
+  /* Architectural Grid Pattern on Brand Side */
+  .jarvis-architectural-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, var(--jarvis-hero-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--jarvis-hero-grid-line) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(circle at 60% 40%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+
+  /* Feature Highlight Card */
+  .jarvis-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--jarvis-space-3);
+    padding: var(--jarvis-space-3) var(--jarvis-space-4);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--jarvis-hero-border);
+    border-radius: var(--jarvis-radius-control);
+    transition: background var(--jarvis-transition-duration), border-color var(--jarvis-transition-duration);
+  }
+
+  .jarvis-feature-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--jarvis-hero-border-active);
+  }
+
+  .jarvis-feature-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--jarvis-radius-xs);
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    color: var(--jarvis-brand-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: var(--jarvis-font-size-xs);
+  }
+
+  /* Status Pill */
+  .jarvis-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--jarvis-space-2);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--jarvis-radius-full);
+    font-size: var(--jarvis-font-size-xs);
+    font-weight: var(--jarvis-font-weight-medium);
+    border: 1px solid transparent;
+  }
+
+  .jarvis-status-badge--success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.25);
+  }
+
+  .jarvis-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    position: relative;
+  }
+
+  .jarvis-status-dot--pulse::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    opacity: 0.6;
+    animation: jarvis-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes jarvis-pulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(0.9); opacity: 0; }
+  }
+
+  /* Form Field Container */
+  .jarvis-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--jarvis-space-1);
+    margin-bottom: var(--jarvis-space-4);
+  }
+
+  .jarvis-form-label {
+    font-size: var(--jarvis-font-size-xs);
+    font-weight: var(--jarvis-font-weight-semibold);
+    color: var(--jarvis-color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .jarvis-form-hint {
+    font-size: var(--jarvis-font-size-xs);
+    color: var(--jarvis-color-text-muted);
+  }
+
+  .jarvis-form-error {
+    font-size: var(--jarvis-font-size-xs);
+    color: var(--jarvis-color-danger);
+    font-weight: var(--jarvis-font-weight-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--jarvis-space-1);
+  }
+
+  /* Password field wrapper with embedded show/hide */
+  .jarvis-password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .jarvis-password-toggle {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--jarvis-color-text-muted);
+    font-size: var(--jarvis-font-size-xs);
+    font-weight: var(--jarvis-font-weight-semibold);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--jarvis-radius-xs);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: color var(--jarvis-transition-duration);
+  }
+
+  .jarvis-password-toggle:hover {
+    color: var(--jarvis-color-text-primary);
+  }
+
+  .jarvis-password-toggle:focus-visible {
+    outline: 2px solid var(--jarvis-brand-primary);
+  }
+
+  /* Notification Alerts */
+  .jarvis-alert-banner {
+    padding: var(--jarvis-space-3) var(--jarvis-space-4);
+    border-radius: var(--jarvis-radius-control);
+    font-size: var(--jarvis-font-size-xs);
+    line-height: var(--jarvis-line-height-normal);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--jarvis-space-2);
+    margin-bottom: var(--jarvis-space-4);
+    border: 1px solid transparent;
+  }
+
+  .jarvis-alert-banner--danger {
+    background-color: var(--jarvis-color-danger-bg);
+    border-color: var(--jarvis-color-danger-border);
+    color: #b91c1c;
+  }
+
+  .jarvis-alert-banner--success {
+    background-color: var(--jarvis-color-success-bg);
+    border-color: var(--jarvis-color-success-border);
+    color: #047857;
+  }
+
+  .jarvis-alert-banner--info {
+    background-color: var(--jarvis-color-info-bg);
+    border-color: var(--jarvis-color-info-border);
+    color: #0369a1;
+  }
+
+  /* Policy Guidance Item */
+  .jarvis-policy-rule {
+    display: flex;
+    align-items: center;
+    gap: var(--jarvis-space-2);
+    font-size: var(--jarvis-font-size-xs);
+    color: var(--jarvis-color-text-muted);
+    transition: color var(--jarvis-transition-duration);
+  }
+
+  .jarvis-policy-rule--met {
+    color: var(--jarvis-color-success);
+    font-weight: var(--jarvis-font-weight-medium);
+  }
+}

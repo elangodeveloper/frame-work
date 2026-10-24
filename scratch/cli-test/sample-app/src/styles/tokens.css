@@ -1,0 +1,13 @@
+:root {
+  --jarvis-primary: #4f46e5;
+  --jarvis-primary-hover: #4338ca;
+  --jarvis-surface: #ffffff;
+  --jarvis-surface-ground: #f8fafc;
+  --jarvis-border: #e2e8f0;
+  --jarvis-radius-sm: 0.25rem;
+  --jarvis-radius-md: 0.5rem;
+  --jarvis-radius-lg: 0.75rem;
+  --jarvis-space-2: 0.5rem;
+  --jarvis-space-4: 1rem;
+  --jarvis-space-6: 1.5rem;
+}

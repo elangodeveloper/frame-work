@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS Framework — Login & LocalStorage Screen</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/branding/favicon.svg">
+  <!-- PrimeIcons & Tailwind Offline-First -->
+  <link rel="stylesheet" href="./primeicons-offline.css">
+  <link rel="stylesheet" href="./tailwind-offline.css">
+  <link rel="stylesheet" href="./login.component.css">
+  <script>
+    if (typeof navigator !== 'undefined' && navigator.onLine) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      script.onerror = () => {};
+      document.head.appendChild(script);
+    }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 m-0 p-0 antialiased">
+  <div id="app-root"></div>
+
+  <script type="module">
+    fetch('./login.component.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('app-root').innerHTML = html;
+        return import('./bundle.js');
+      })
+      .then(() => {
+        console.log('Login application bootstrapped successfully.');
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+/* Component styles for AuthPageHeaderComponent */
+.auth-header-container {
+  margin-bottom: var(--jarvis-space-6);
+}
+
+.auth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--jarvis-space-2);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--jarvis-radius-sm);
+  background-color: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  color: var(--jarvis-brand-primary);
+  font-size: 0.7rem;
+  font-weight: var(--jarvis-font-weight-bold);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--jarvis-space-3);
+}
+
+.auth-badge i {
+  font-size: 0.75rem;
+}
+
+.auth-title {
+  font-size: var(--jarvis-font-size-3xl);
+  font-weight: var(--jarvis-font-weight-extrabold);
+  letter-spacing: -0.03em;
+  color: var(--jarvis-color-text-primary);
+  margin: 0 0 var(--jarvis-space-1) 0;
+  line-height: var(--jarvis-line-height-tight);
+}
+
+.auth-subtitle {
+  font-size: var(--jarvis-font-size-sm);
+  color: var(--jarvis-color-text-secondary);
+  line-height: var(--jarvis-line-height-normal);
+  margin: 0;
+}

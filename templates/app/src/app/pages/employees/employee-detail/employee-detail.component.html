@@ -1,0 +1,47 @@
+<div class="employee-detail-card">
+  @if (employee(); as emp) {
+    <header class="detail-header">
+      <h2>{{ emp.name }}</h2>
+      <span class="badge">{{ emp.department }}</span>
+    </header>
+
+    <div class="detail-body">
+      <div class="field">
+        <label>ID:</label>
+        <span>{{ emp.id }}</span>
+      </div>
+      <div class="field">
+        <label>Role:</label>
+        <span>{{ emp.role }}</span>
+      </div>
+      <div class="field">
+        <label>Email:</label>
+        <span>{{ emp.email }}</span>
+      </div>
+    </div>
+
+    @if (hasChanges()) {
+      <div class="unsaved-warning">
+        ⚠️ You have unsaved changes. Navigation is guarded.
+      </div>
+    }
+
+    <div class="actions">
+      <button (click)="markChanged(emp.name + ' (Updated)', emp.role)" class="btn btn-secondary">
+        Simulate Edit
+      </button>
+      <button (click)="save()" [disabled]="!hasChanges()" class="btn btn-primary">
+        Save Changes
+      </button>
+      <button (click)="reset()" [disabled]="!hasChanges()" class="btn btn-outline">
+        Discard
+      </button>
+      <a routerLink="/employees" class="btn btn-link">← Back to Directory</a>
+    </div>
+  } @else {
+    <div class="not-found-msg">
+      <p>Employee not found for ID: {{ id() }}</p>
+      <a routerLink="/employees" class="btn btn-primary">Back to Directory</a>
+    </div>
+  }
+</div>

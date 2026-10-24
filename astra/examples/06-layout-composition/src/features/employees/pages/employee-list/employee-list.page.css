@@ -1,0 +1,11 @@
+.employee-list-page {
+  padding: 1.5rem;
+}
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.employee-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}

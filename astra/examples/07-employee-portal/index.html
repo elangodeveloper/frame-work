@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS / WORKSPACE — Intelligent Employee Access</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/branding/favicon.svg">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- PrimeIcons & Tailwind Offline-First -->
+  <link rel="stylesheet" href="./primeicons-offline.css">
+  <link rel="stylesheet" href="./tailwind-offline.css">
+  <script>
+    if (typeof navigator !== 'undefined' && navigator.onLine) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      script.onerror = () => {};
+      document.head.appendChild(script);
+    }
+  </script>
+
+  <!-- Centralized Master Stylesheet -->
+  <link rel="stylesheet" href="./src/styles/styles.css">
+</head>
+<body class="min-h-screen antialiased bg-[#fbfcfb] text-slate-900 selection:bg-emerald-500 selection:text-white">
+
+  <!-- Main Mount Container for JARVIS Framework Runtime -->
+  <div id="app-root"></div>
+
+  <!-- Bundled ES Module Application -->
+  <script type="module" src="./bundle.js"></script>
+</body>
+</html>

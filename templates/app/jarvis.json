@@ -1,0 +1,37 @@
+{
+  "$schema": "./node_modules/@jarvis/cli/schema.json",
+  "name": "my-app",
+  "version": "0.1.0",
+  "projects": {
+    "my-app": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "entry": "src/main.ts",
+      "index": "src/index.html",
+      "assets": ["public"],
+      "styles": ["src/styles.css"],
+      "outputPath": "dist",
+      "configurations": {
+        "development": {
+          "sourcemap": true,
+          "minify": false
+        },
+        "production": {
+          "sourcemap": false,
+          "minify": true,
+          "treeShake": true,
+          "fileHashing": true,
+          "codeSplitting": true,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

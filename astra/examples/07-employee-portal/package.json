@@ -1,0 +1,19 @@
+{
+  "name": "example-employee-portal",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@jarvis/compiler-runtime": "*",
+    "@jarvis/core": "*",
+    "@jarvis/forms": "*",
+    "@jarvis/layout": "*",
+    "@jarvis/primeng": "*",
+    "@jarvis/reactive": "*",
+    "@jarvis/renderer": "*",
+    "@jarvis/router": "*",
+    "@jarvis/runtime": "*",
+    "@jarvis/styles": "*",
+    "@jarvis/testing": "*"
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS Framework — Milestone 1: Hello World</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/branding/favicon.svg">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      padding: 2.5rem 3.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="root">
+      <!-- Jarvis component will mount here -->
+    </div>
+    <p>Rendered with fine-grained Jarvis DOMRenderer & compiled via jarvis-compiler (Rust).</p>
+    <span class="badge">Milestone 1 Complete: Hello World Pipeline</span>
+  </div>
+
+  <script type="module">
+    // Direct in-browser bootstrap demonstration
+    class DOMRenderer {
+      createElement(tag) { return document.createElement(tag); }
+      createText(content = '') { return document.createTextNode(content); }
+      appendChild(parent, child) { parent.appendChild(child); }
+      removeChild(parent, child) { parent.removeChild(child); }
+      setAttribute(el, k, v) { el.setAttribute(k, v); }
+      setProperty(el, k, v) { el[k] = v; }
+      setText(txt, v) { txt.textContent = v; }
+      bindText(txt, fn) { txt.textContent = fn(); }
+      bindProperty(el, prop, fn) { el[prop] = fn(); }
+      listen(el, ev, handler) { el.addEventListener(ev, handler); }
+    }
+
+    // Factory emitted by jarvis-compiler
+    function template(renderer, ctx) {
+      const n0 = renderer.createElement('h1');
+      const n1 = renderer.createText(ctx.title);
+      renderer.appendChild(n0, n1);
+      return { root: n0 };
+    }
+
+    class App {
+      title = 'Hello Jarvis';
+    }
+
+    const renderer = new DOMRenderer();
+    const container = document.getElementById('root');
+    const view = template(renderer, new App());
+    renderer.appendChild(container, view.root);
+  </script>
+</body>
+</html>

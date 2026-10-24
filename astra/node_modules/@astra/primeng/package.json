@@ -1,0 +1,14 @@
+{
+  "name": "@jarvis/primeng",
+  "version": "0.1.0",
+  "description": "PrimeNG v20 adapter layer for Jarvis Framework",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@jarvis/core": "*",
+    "@jarvis/reactive": "*",
+    "@jarvis/renderer": "*",
+    "@jarvis/runtime": "*"
+  }
+}

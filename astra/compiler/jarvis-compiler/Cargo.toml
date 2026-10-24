@@ -1,0 +1,22 @@
+[package]
+name = "jarvis-compiler"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jarvis Framework Architect Team"]
+license = "MIT OR Apache-2.0"
+
+[workspace]
+
+[dependencies]
+bumpalo = { version = "3.16", features = ["collections"] }
+lasso = "0.7.3"
+rayon = "1.10"
+sha2 = "0.10"
+
+[dev-dependencies]
+criterion = "0.5"
+insta = { version = "1.41", features = ["yaml"] }
+
+[[bench]]
+name = "compiler_bench"
+harness = false

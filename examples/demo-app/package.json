@@ -1,0 +1,29 @@
+{
+  "name": "my-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "jarvis serve",
+    "build": "jarvis build",
+    "build:prod": "jarvis build --configuration production",
+    "watch": "jarvis build --watch",
+    "test": "jarvis test",
+    "lint": "jarvis lint",
+    "generate": "jarvis generate"
+  },
+  "dependencies": {
+    "@jarvis/core": "^0.1.0",
+    "@jarvis/runtime": "^0.1.0",
+    "@jarvis/renderer": "^0.1.0",
+    "@jarvis/router": "^0.1.0",
+    "@jarvis/http": "^0.1.0",
+    "@jarvis/forms": "^0.1.0"
+  },
+  "devDependencies": {
+    "@jarvis/cli": "^0.1.0",
+    "@jarvis/vite-plugin": "^0.1.0",
+    "typescript": "~5.7.0",
+    "vitest": "^2.0.0"
+  }
+}

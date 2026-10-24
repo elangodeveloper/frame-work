@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS Framework — Enterprise Portal (Router + PrimeNG v20 + Tailwind)</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/branding/favicon.svg">
+
+  <!-- PrimeIcons (Offline-first local SVG fallback + optional CDN) -->
+  <link rel="stylesheet" href="./primeicons-offline.css">
+
+  <!-- Tailwind CSS (Offline-first local stylesheet + online CDN enhancer) -->
+  <link rel="stylesheet" href="./tailwind-offline.css">
+  <script>
+    // Only attempt loading external CDN if online, preventing ERR_INTERNET_DISCONNECTED
+    if (typeof navigator !== 'undefined' && navigator.onLine) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      script.onerror = () => { /* gracefully fallback to local tailwind-offline.css */ };
+      document.head.appendChild(script);
+    }
+  </script>
+
+  <style>
+    /* PrimeNG v20 Aura Theme Tokens */
+    :root {
+      --p-primary-color: #059669;
+      --p-primary-hover-color: #047857;
+      --p-primary-contrast-color: #ffffff;
+      --p-border-radius-sm: 6px;
+      --p-border-radius-md: 8px;
+      --p-border-radius-lg: 12px;
+      --p-surface-0: #ffffff;
+      --p-surface-50: #f8fafc;
+      --p-surface-100: #f1f5f9;
+      --p-surface-200: #e2e8f0;
+      --p-surface-700: #334155;
+      --p-surface-800: #1e293b;
+      --p-surface-900: #0f172a;
+      --p-text-color: #1e293b;
+      --p-text-muted-color: #64748b;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f1f5f9;
+      color: var(--p-text-color);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    /* PrimeNG Component Styles wrapped in @layer for seamless Tailwind precedence */
+    @layer primeng {
+      .p-component {
+        box-sizing: border-box;
+      }
+      .p-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: var(--p-border-radius-md);
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        border: 1px solid var(--p-primary-color);
+        background: var(--p-primary-color);
+        color: var(--p-primary-contrast-color);
+        transition: all 0.15s ease;
+      }
+      .p-button:hover:not(:disabled) {
+        background: var(--p-primary-hover-color);
+        border-color: var(--p-primary-hover-color);
+      }
+      .p-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .p-button-outlined {
+        background: transparent;
+        color: var(--p-primary-color);
+      }
+      .p-button-outlined:hover:not(:disabled) {
+        background: rgba(5, 150, 105, 0.08);
+      }
+      .p-button-text {
+        background: transparent;
+        border-color: transparent;
+        color: var(--p-text-color);
+      }
+      .p-button-text:hover:not(:disabled) {
+        background: var(--p-surface-100);
+      }
+      .p-button-danger {
+        background: #ef4444;
+        border-color: #ef4444;
+        color: #ffffff;
+      }
+      .p-button-danger:hover:not(:disabled) {
+        background: #dc2626;
+        border-color: #dc2626;
+      }
+
+      .p-inputtext {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-md);
+        font-size: 0.875rem;
+        background: #ffffff;
+        outline: none;
+        transition: border-color 0.15s;
+        width: 100%;
+      }
+      .p-inputtext:focus {
+        border-color: var(--p-primary-color);
+        box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2);
+      }
+
+      .p-select {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-md);
+        background: #ffffff;
+        cursor: pointer;
+        width: 100%;
+        font-size: 0.875rem;
+      }
+      .p-select-overlay {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 4px;
+        background: #ffffff;
+        border: 1px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-md);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        z-index: 1200;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .p-select-list {
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0;
+      }
+      .p-select-option {
+        padding: 0.5rem 0.75rem;
+        cursor: pointer;
+      }
+      .p-select-option:hover {
+        background: var(--p-surface-100);
+      }
+      .p-select-option-selected {
+        background: var(--p-surface-100);
+        font-weight: 600;
+        color: var(--p-primary-color);
+      }
+
+      .p-checkbox {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+      }
+      .p-checkbox-box {
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 2px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+      }
+      .p-checkbox-box.p-highlight {
+        background: var(--p-primary-color);
+        border-color: var(--p-primary-color);
+        color: #ffffff;
+      }
+
+      .p-datatable {
+        width: 100%;
+        background: #ffffff;
+        border-radius: var(--p-border-radius-lg);
+        border: 1px solid var(--p-surface-200);
+        overflow: hidden;
+      }
+      .p-datatable-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .p-datatable th, .p-datatable td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--p-surface-200);
+        font-size: 0.875rem;
+      }
+      .p-datatable th {
+        background: var(--p-surface-50);
+        font-weight: 600;
+        color: var(--p-text-color);
+      }
+      .p-sortable-column {
+        cursor: pointer;
+      }
+      .p-sortable-column:hover {
+        background: var(--p-surface-100);
+      }
+      .p-sortable-column-icon {
+        margin-left: 0.5rem;
+        font-size: 0.75rem;
+        opacity: 0.6;
+      }
+      .p-paginator {
+        padding: 0.75rem 1rem;
+        background: var(--p-surface-50);
+        font-size: 0.875rem;
+        color: var(--p-text-muted-color);
+        border-top: 1px solid var(--p-surface-200);
+      }
+
+      .p-dialog-mask {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1100;
+      }
+      .p-dialog {
+        background: #ffffff;
+        border-radius: var(--p-border-radius-lg);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        min-width: 440px;
+        max-width: 90vw;
+        border: 1px solid var(--p-surface-200);
+        overflow: hidden;
+      }
+      .p-dialog-header {
+        padding: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--p-surface-200);
+        font-weight: 600;
+      }
+      .p-dialog-content {
+        padding: 1.25rem;
+      }
+    }
+
+    /* Active Router Link Style */
+    .nav-link-active {
+      background-color: #ecfdf5 !important;
+      color: #047857 !important;
+      font-weight: 600 !important;
+      border-left: 3px solid #059669 !important;
+    }
+  </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="w-64 bg-white border-r border-slate-200 flex flex-col flex-shrink-0">
+    <div class="h-16 flex items-center px-6 border-b border-slate-200 gap-3">
+      <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold">
+        ✦
+      </div>
+      <div>
+        <span class="font-bold text-slate-800 tracking-tight">JARVIS Portal</span>
+        <span class="block text-[10px] text-emerald-600 font-semibold uppercase tracking-wider">Signal Router</span>
+      </div>
+    </div>
+
+    <!-- Navigation Menu with [routerLink] bindings -->
+    <nav class="p-4 space-y-1.5 flex-1">
+      <a id="nav-dashboard" href="/dashboard" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm font-medium">
+        <i class="pi pi-th-large text-slate-400"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a id="nav-employees" href="/employees" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm font-medium">
+        <i class="pi pi-users text-slate-400"></i>
+        <span>Personnel</span>
+      </a>
+
+      <a id="nav-settings" href="/settings" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm font-medium">
+        <i class="pi pi-cog text-slate-400"></i>
+        <span>Settings</span>
+      </a>
+
+      <a id="nav-login" href="/login" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors text-sm font-medium">
+        <i class="pi pi-shield text-slate-400"></i>
+        <span>Sign In & Storage</span>
+      </a>
+    </nav>
+
+    <!-- Sidebar footer badge -->
+    <div class="p-4 border-t border-slate-200">
+      <div class="bg-slate-50 rounded-lg p-3 text-xs text-slate-500 space-y-1">
+        <div class="font-semibold text-slate-700">Architecture</div>
+        <div>JARVIS Signal Router</div>
+        <div>PrimeNG v20 + Tailwind</div>
+        <div class="text-emerald-600 font-medium">Strictly Zero RxJS</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main View Area -->
+  <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+    <!-- Top Bar -->
+    <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 flex-shrink-0">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Location:</span>
+        <span id="current-url-display" class="font-mono text-xs px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-semibold">/</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span id="current-user-display" class="text-xs text-slate-500 font-medium">Guest User</span>
+        <div id="user-avatar-display" class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center text-xs">
+          GU
+        </div>
+      </div>
+    </header>
+
+    <!-- Scrollable Router Outlet Container -->
+    <main class="flex-1 overflow-y-auto p-8">
+      <div id="router-outlet" class="max-w-5xl mx-auto"></div>
+    </main>
+  </div>
+
+  <script type="module" src="./bundle.js"></script>
+</body>
+</html>

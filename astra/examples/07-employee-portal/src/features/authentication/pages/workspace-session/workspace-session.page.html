@@ -1,0 +1,43 @@
+<section class="workspace-session-screen" aria-labelledby="workspace-heading">
+  <jarvis-auth-page-header
+    [title]="'Employee Workspace'"
+    [subtitle]="'Authorized corporate identity session active.'"
+    [badge]="'IDENTITY VERIFIED · ACTIVE SESSION'"
+    [icon]="'pi pi-check-circle'">
+  </jarvis-auth-page-header>
+
+  <div class="workspace-profile-card">
+    <div *ngIf="authService.currentUser() as user" class="profile-header">
+      <img [src]="user.avatar" [alt]="user.name" class="profile-avatar" />
+      <div>
+        <div class="profile-name-row">
+          <h2 class="profile-name">{{ user.name }}</h2>
+          <span class="profile-clearance">{{ user.clearanceLevel }}</span>
+        </div>
+        <div class="profile-role">{{ user.role }} · {{ user.department }}</div>
+        <div class="profile-id font-mono">ID: {{ user.id }} | Email: {{ user.email }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="authService.sessionInfo() as session" class="session-meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">TOKEN SIGNATURE</span>
+        <span class="meta-val font-mono">{{ session.token }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">DEVICE FINGERPRINT</span>
+        <span class="meta-val font-mono">{{ session.deviceFingerprint }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="workspace-actions">
+    <button
+      type="button"
+      class="p-button p-component p-button-danger w-full"
+      (click)="handleLogout()">
+      <i class="pi pi-power-off"></i>
+      <span>Sign Out & Terminate Session</span>
+    </button>
+  </div>
+</section>

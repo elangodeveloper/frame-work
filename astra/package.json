@@ -1,0 +1,30 @@
+{
+  "name": "jarvis-framework",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "adapters/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "start": "node scripts/serve.js 03-router-primeng-tailwind",
+    "serve": "node scripts/serve.js 03-router-primeng-tailwind",
+    "serve:primeng": "node scripts/serve.js 02-primeng-showcase",
+    "serve:login": "node scripts/serve.js 04-login-storage",
+    "serve:layout": "node scripts/serve.js 06-layout-composition",
+    "serve:portal": "node scripts/serve.js 07-employee-portal",
+    "build": "esbuild examples/03-router-primeng-tailwind/app.ts --bundle --format=esm --outfile=examples/03-router-primeng-tailwind/bundle.js && esbuild examples/02-primeng-showcase/app.ts --bundle --format=esm --outfile=examples/02-primeng-showcase/bundle.js && esbuild examples/04-login-storage/app.ts --bundle --format=esm --outfile=examples/04-login-storage/bundle.js && esbuild examples/06-layout-composition/app.ts --bundle --format=esm --outfile=examples/06-layout-composition/bundle.js && esbuild examples/07-employee-portal/app.ts --bundle --format=esm --outfile=examples/07-employee-portal/bundle.js",
+    "test": "node --test packages/**/tests/*.test.ts adapters/**/tests/*.test.ts cli/tests/*.test.ts examples/**/*test*.ts examples/**/*spec*.ts",
+    "test:portal": "node --test examples/07-employee-portal/**/*.spec.ts",
+    "test:primeng": "node --test adapters/primeng/tests/*.test.ts",
+    "test:router": "node --test packages/router/tests/*.test.ts examples/03*/*.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "docx": "^9.8.1",
+    "esbuild": "^0.28.2",
+    "typescript": "^5.7.0"
+  }
+}

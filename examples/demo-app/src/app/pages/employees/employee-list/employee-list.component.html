@@ -1,0 +1,16 @@
+<div class="employee-list-container">
+  <h2>Employees Directory</h2>
+  <p class="subtitle">Total registered: {{ totalEmployees() }}</p>
+
+  <ul class="employee-items">
+    @for (emp of employees(); track emp.id) {
+      <li class="employee-card">
+        <div class="info">
+          <h3>{{ emp.name }}</h3>
+          <span class="role">{{ emp.role }}</span> - <span class="dept">{{ emp.department }}</span>
+        </div>
+        <a [routerLink]="'/employees/' + emp.id" class="view-btn">View Details</a>
+      </li>
+    }
+  </ul>
+</div>

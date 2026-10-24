@@ -1,0 +1,127 @@
+<section class="employee-dashboard" aria-labelledby="dashboard-heading">
+  <!-- Top Identity Header Bar -->
+  <header class="dashboard-topbar">
+    <div class="employee-identity-block">
+      <div class="avatar-wrapper">
+        <img class="employee-avatar" src="" alt="Employee Profile" />
+        <span class="avatar-status-dot" aria-hidden="true"></span>
+      </div>
+      <div>
+        <div class="employee-name-row">
+          <h1 id="dashboard-heading" class="employee-name">Employee Workspace</h1>
+          <span class="clearance-badge font-mono">LEVEL 5</span>
+        </div>
+        <div class="employee-meta-row">
+          <span class="employee-role">Chief Technology Officer</span>
+          <span class="meta-separator" aria-hidden="true">·</span>
+          <span class="employee-dept">Advanced Engineering</span>
+          <span class="meta-separator" aria-hidden="true">·</span>
+          <span class="employee-id font-mono">EMP-10001</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Action Controls -->
+    <div class="dashboard-actions">
+      <!-- Edit Preferences Button (PrimeNG Button) -->
+      <!-- Sign Out Button (PrimeNG Button) -->
+    </div>
+  </header>
+
+  <!-- 4 Executive KPI Metrics Grid -->
+  <div class="kpi-grid" role="region" aria-label="Executive Metrics">
+    <!-- Populated reactively via JARVIS Signals -->
+  </div>
+
+  <!-- Interactive Project Workspaces Management Section -->
+  <section class="dashboard-card project-workspaces-section">
+    <div class="section-header-row">
+      <div>
+        <h2 class="section-title">Authorized Workspaces & Active Projects</h2>
+        <p class="section-subtitle">Real-time status of assigned engineering pipelines and security enclaves.</p>
+      </div>
+
+      <!-- PrimeNG Search Input & Status Filters -->
+      <div class="filter-controls">
+        <div class="search-input-box">
+          <i class="pi pi-search search-icon" aria-hidden="true"></i>
+          <!-- JarvisInputText mounted here -->
+        </div>
+        <div class="status-filter-pills" role="radiogroup" aria-label="Filter by project status">
+          <button type="button" class="status-pill active" data-filter="ALL">All</button>
+          <button type="button" class="status-pill" data-filter="ACTIVE">Active</button>
+          <button type="button" class="status-pill" data-filter="REVIEW">In Review</button>
+          <button type="button" class="status-pill" data-filter="DEPLOYED">Deployed</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reactive Projects Data Table / Grid -->
+    <div class="projects-table-container">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th scope="col">Project Code</th>
+            <th scope="col">Title & Department</th>
+            <th scope="col">Clearance</th>
+            <th scope="col">Status</th>
+            <th scope="col">Completion</th>
+            <th scope="col" class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="projects-table-body">
+          <!-- Populated reactively -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Split Bottom Grid: Security Audit Trail & Quick Launch Tools -->
+  <div class="bottom-split-grid">
+    <!-- Security Audit Log Card -->
+    <section class="dashboard-card">
+      <div class="card-header">
+        <h3 class="card-title"><i class="pi pi-shield text-emerald-600"></i> Identity & Audit Trail</h3>
+        <span class="audit-counter-badge font-mono">LIVE ENCLAVE</span>
+      </div>
+      <div class="audit-list">
+        <!-- Rendered via signals -->
+      </div>
+    </section>
+
+    <!-- Quick Utilities Card -->
+    <section class="dashboard-card">
+      <div class="card-header">
+        <h3 class="card-title"><i class="pi pi-th-large text-emerald-600"></i> Quick Workspace Tools</h3>
+        <span class="tools-subtext text-xs text-slate-500">SSO Authenticated</span>
+      </div>
+      <div class="quick-tools-grid">
+        <div class="quick-tool-tile">
+          <i class="pi pi-code text-cyan-600 text-xl mb-2"></i>
+          <span class="tool-title">Monorepo Terminal</span>
+          <span class="tool-desc">v0.1.0 · Fast HMR</span>
+        </div>
+        <div class="quick-tool-tile">
+          <i class="pi pi-server text-emerald-600 text-xl mb-2"></i>
+          <span class="tool-title">Nexus Cloud Mesh</span>
+          <span class="tool-desc">12 Nodes Online</span>
+        </div>
+        <div class="quick-tool-tile">
+          <i class="pi pi-key text-amber-600 text-xl mb-2"></i>
+          <span class="tool-title">Key Vault HSM</span>
+          <span class="tool-desc">Zero-Knowledge RSA</span>
+        </div>
+        <div class="quick-tool-tile">
+          <i class="pi pi-chart-line text-purple-600 text-xl mb-2"></i>
+          <span class="tool-title">Telemetry Observability</span>
+          <span class="tool-desc">99.99% Uptime</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <span>User</span>
+
+  <!-- PrimeNG Profile Edit Dialog Modal -->
+  <!-- Mounted via JarvisDialog -->
+</section>

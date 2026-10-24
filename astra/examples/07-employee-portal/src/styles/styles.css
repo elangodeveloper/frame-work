@@ -1,0 +1,23 @@
+/**
+ * JARVIS Central Stylesheet Entrypoint for Employee Portal
+ * Explicit cascade layer order:
+ */
+@layer theme, jarvis-base, primeng, jarvis-components, jarvis-utilities, tailwind;
+
+@import "./tokens.css";
+@import "./themes.css";
+@import "./typography.css";
+@import "./components.css";
+@import "./utilities.css";
+
+/* Base Body Application Reset */
+body {
+  font-family: var(--jarvis-font-sans);
+  background-color: var(--jarvis-color-background);
+  color: var(--jarvis-color-text-primary);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

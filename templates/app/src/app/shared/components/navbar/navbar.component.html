@@ -1,0 +1,24 @@
+<nav class="nav-bar">
+  <div class="brand">
+    <a routerLink="/" class="brand-link">
+      <span class="logo">⚡</span>
+      <strong>Jarvis App</strong>
+    </a>
+  </div>
+
+  <div class="links">
+    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <a routerLink="/employees" routerLinkActive="active">Employees</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+  </div>
+
+  <div class="user-action">
+    <button (click)="toggleAuth()" class="auth-btn">
+      @if (isAuthenticated()) {
+        Sign Out
+      } @else {
+        Sign In (Demo)
+      }
+    </button>
+  </div>
+</nav>

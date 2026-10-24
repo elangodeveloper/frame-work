@@ -1,0 +1,23 @@
+---
+source: tests/snapshots.rs
+expression: js
+---
+/**
+ * Compiled Jarvis View Factory
+ */
+export function template(renderer, ctx) {
+  const n0 = renderer.createText('');
+  // @if (ctx.isLoggedIn())
+  if (ctx.isLoggedIn()) {
+    const n1 = renderer.createElement('span');
+    const n2 = renderer.createText('Welcome');
+    renderer.appendChild(n1, n2);
+  } else {
+  }
+  const n3 = renderer.createText(' { ');
+  const n4 = renderer.createElement('button');
+  const n5 = renderer.createText('Login');
+  renderer.appendChild(n4, n5);
+  const n6 = renderer.createText(' }');
+  return { root: n0 };
+}

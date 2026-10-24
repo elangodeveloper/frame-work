@@ -1,0 +1,14 @@
+{
+  "name": "@jarvis/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "jarvis": "./bin/jarvis.js"
+  },
+  "dependencies": {
+    "@jarvis/core": "*",
+    "@jarvis/vite-plugin": "*",
+    "vite": "^6.0.0",
+    "esbuild": "^0.28.2"
+  }
+}

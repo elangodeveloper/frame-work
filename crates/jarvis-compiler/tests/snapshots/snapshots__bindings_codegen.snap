@@ -1,0 +1,15 @@
+---
+source: tests/snapshots.rs
+expression: js
+---
+/**
+ * Compiled Jarvis View Factory
+ */
+export function template(renderer, ctx) {
+  const n0 = renderer.createElement('input');
+  renderer.bindProperty(n0, 'disabled', () => ctx.isLoading());
+  renderer.listen(n0, 'click', ($event) => ctx.handleClick($event));
+  renderer.bindProperty(n0, 'value', () => ctx.username());
+  renderer.listen(n0, 'input', ($event) => ctx.username.set($event));
+  return { root: n0 };
+}

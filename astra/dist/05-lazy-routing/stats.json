@@ -1,0 +1,420 @@
+{
+  "inputs": {
+    "packages/reactive/src/graph.ts": {
+      "bytes": 1383,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/reactive/src/scheduler.ts": {
+      "bytes": 992,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/reactive/src/signal.ts": {
+      "bytes": 6058,
+      "imports": [
+        {
+          "path": "packages/reactive/src/graph.ts",
+          "kind": "import-statement",
+          "original": "./graph.ts"
+        },
+        {
+          "path": "packages/reactive/src/scheduler.ts",
+          "kind": "import-statement",
+          "original": "./scheduler.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/reactive/src/index.ts": {
+      "bytes": 89,
+      "imports": [
+        {
+          "path": "packages/reactive/src/graph.ts",
+          "kind": "import-statement",
+          "original": "./graph.ts"
+        },
+        {
+          "path": "packages/reactive/src/scheduler.ts",
+          "kind": "import-statement",
+          "original": "./scheduler.ts"
+        },
+        {
+          "path": "packages/reactive/src/signal.ts",
+          "kind": "import-statement",
+          "original": "./signal.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/core/src/metadata.ts": {
+      "bytes": 1007,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/core/src/component.ts": {
+      "bytes": 1349,
+      "imports": [
+        {
+          "path": "packages/core/src/metadata.ts",
+          "kind": "import-statement",
+          "original": "./metadata.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/core/src/event.ts": {
+      "bytes": 1358,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/core/src/di.ts": {
+      "bytes": 4946,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/core/src/index.ts": {
+      "bytes": 227,
+      "imports": [
+        {
+          "path": "packages/core/src/metadata.ts",
+          "kind": "import-statement",
+          "original": "./metadata.ts"
+        },
+        {
+          "path": "packages/core/src/component.ts",
+          "kind": "import-statement",
+          "original": "./component.ts"
+        },
+        {
+          "path": "packages/core/src/event.ts",
+          "kind": "import-statement",
+          "original": "./event.ts"
+        },
+        {
+          "path": "packages/core/src/di.ts",
+          "kind": "import-statement",
+          "original": "./di.ts"
+        },
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/router/src/url-parser.ts": {
+      "bytes": 8445,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/router/src/activated-route.ts": {
+      "bytes": 1460,
+      "imports": [
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/router/src/router.ts": {
+      "bytes": 11174,
+      "imports": [
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        },
+        {
+          "path": "packages/core/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../core/src/index.ts"
+        },
+        {
+          "path": "packages/router/src/url-parser.ts",
+          "kind": "import-statement",
+          "original": "./url-parser.ts"
+        },
+        {
+          "path": "packages/router/src/activated-route.ts",
+          "kind": "import-statement",
+          "original": "./activated-route.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/router/src/types.ts": {
+      "bytes": 3626,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/router/src/router-outlet.ts": {
+      "bytes": 3391,
+      "imports": [
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        },
+        {
+          "path": "packages/core/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../core/src/index.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/router/src/router-link.ts": {
+      "bytes": 2214,
+      "imports": [
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/router/src/index.ts": {
+      "bytes": 1228,
+      "imports": [
+        {
+          "path": "packages/router/src/router.ts",
+          "kind": "import-statement",
+          "original": "./router.ts"
+        },
+        {
+          "path": "packages/router/src/types.ts",
+          "kind": "import-statement",
+          "original": "./types.ts"
+        },
+        {
+          "path": "packages/router/src/url-parser.ts",
+          "kind": "import-statement",
+          "original": "./url-parser.ts"
+        },
+        {
+          "path": "packages/router/src/activated-route.ts",
+          "kind": "import-statement",
+          "original": "./activated-route.ts"
+        },
+        {
+          "path": "packages/router/src/router.ts",
+          "kind": "import-statement",
+          "original": "./router.ts"
+        },
+        {
+          "path": "packages/router/src/router-outlet.ts",
+          "kind": "import-statement",
+          "original": "./router-outlet.ts"
+        },
+        {
+          "path": "packages/router/src/router-link.ts",
+          "kind": "import-statement",
+          "original": "./router-link.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/renderer/src/renderer.ts": {
+      "bytes": 1015,
+      "imports": [],
+      "format": "esm"
+    },
+    "packages/renderer/src/dom_renderer.ts": {
+      "bytes": 1498,
+      "imports": [
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/renderer/src/test_renderer.ts": {
+      "bytes": 3720,
+      "imports": [
+        {
+          "path": "packages/reactive/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../reactive/src/index.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "packages/renderer/src/index.ts": {
+      "bytes": 102,
+      "imports": [
+        {
+          "path": "packages/renderer/src/renderer.ts",
+          "kind": "import-statement",
+          "original": "./renderer.ts"
+        },
+        {
+          "path": "packages/renderer/src/dom_renderer.ts",
+          "kind": "import-statement",
+          "original": "./dom_renderer.ts"
+        },
+        {
+          "path": "packages/renderer/src/test_renderer.ts",
+          "kind": "import-statement",
+          "original": "./test_renderer.ts"
+        }
+      ],
+      "format": "esm"
+    },
+    "examples/05-lazy-routing/dashboard.ts": {
+      "bytes": 176,
+      "imports": [],
+      "format": "esm"
+    },
+    "examples/05-lazy-routing/analytics.ts": {
+      "bytes": 234,
+      "imports": [],
+      "format": "esm"
+    },
+    "examples/05-lazy-routing/admin.ts": {
+      "bytes": 204,
+      "imports": [],
+      "format": "esm"
+    },
+    "examples/05-lazy-routing/main.ts": {
+      "bytes": 1107,
+      "imports": [
+        {
+          "path": "packages/router/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../packages/router/src/index.ts"
+        },
+        {
+          "path": "packages/renderer/src/index.ts",
+          "kind": "import-statement",
+          "original": "../../packages/renderer/src/index.ts"
+        },
+        {
+          "path": "examples/05-lazy-routing/dashboard.ts",
+          "kind": "import-statement",
+          "original": "./dashboard.ts"
+        },
+        {
+          "path": "examples/05-lazy-routing/analytics.ts",
+          "kind": "dynamic-import",
+          "original": "./analytics.ts"
+        },
+        {
+          "path": "examples/05-lazy-routing/admin.ts",
+          "kind": "dynamic-import",
+          "original": "./admin.ts"
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "dist/05-lazy-routing/main-XUSLDOPO.js": {
+      "imports": [
+        {
+          "path": "dist/05-lazy-routing/chunk-analytics-VMCYJSCG.js",
+          "kind": "dynamic-import"
+        },
+        {
+          "path": "dist/05-lazy-routing/chunk-admin-ANQY7SEQ.js",
+          "kind": "dynamic-import"
+        }
+      ],
+      "exports": [
+        "adminGuard",
+        "analyticsResolver",
+        "router",
+        "routes"
+      ],
+      "entryPoint": "examples/05-lazy-routing/main.ts",
+      "inputs": {
+        "packages/reactive/src/graph.ts": {
+          "bytesInOutput": 571
+        },
+        "packages/reactive/src/index.ts": {
+          "bytesInOutput": 0
+        },
+        "packages/reactive/src/scheduler.ts": {
+          "bytesInOutput": 446
+        },
+        "packages/reactive/src/signal.ts": {
+          "bytesInOutput": 1877
+        },
+        "packages/core/src/metadata.ts": {
+          "bytesInOutput": 170
+        },
+        "packages/core/src/index.ts": {
+          "bytesInOutput": 0
+        },
+        "packages/core/src/event.ts": {
+          "bytesInOutput": 916
+        },
+        "packages/core/src/di.ts": {
+          "bytesInOutput": 3344
+        },
+        "packages/router/src/url-parser.ts": {
+          "bytesInOutput": 4803
+        },
+        "packages/router/src/activated-route.ts": {
+          "bytesInOutput": 843
+        },
+        "packages/router/src/router.ts": {
+          "bytesInOutput": 9330
+        },
+        "packages/router/src/index.ts": {
+          "bytesInOutput": 394
+        },
+        "packages/router/src/router-outlet.ts": {
+          "bytesInOutput": 2589
+        },
+        "packages/renderer/src/index.ts": {
+          "bytesInOutput": 0
+        },
+        "packages/renderer/src/dom_renderer.ts": {
+          "bytesInOutput": 1007
+        },
+        "examples/05-lazy-routing/dashboard.ts": {
+          "bytesInOutput": 176
+        },
+        "examples/05-lazy-routing/main.ts": {
+          "bytesInOutput": 869
+        }
+      },
+      "bytes": 27913
+    },
+    "dist/05-lazy-routing/chunk-analytics-VMCYJSCG.js": {
+      "imports": [],
+      "exports": [
+        "AnalyticsComponent",
+        "default"
+      ],
+      "entryPoint": "examples/05-lazy-routing/analytics.ts",
+      "inputs": {
+        "examples/05-lazy-routing/analytics.ts": {
+          "bytesInOutput": 225
+        }
+      },
+      "bytes": 331
+    },
+    "dist/05-lazy-routing/chunk-admin-ANQY7SEQ.js": {
+      "imports": [],
+      "exports": [
+        "AdminComponent",
+        "default"
+      ],
+      "entryPoint": "examples/05-lazy-routing/admin.ts",
+      "inputs": {
+        "examples/05-lazy-routing/admin.ts": {
+          "bytesInOutput": 209
+        }
+      },
+      "bytes": 303
+    }
+  }
+}

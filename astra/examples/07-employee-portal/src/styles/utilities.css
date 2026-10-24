@@ -1,0 +1,42 @@
+/**
+ * JARVIS Layout & Accessibility Utilities
+ */
+
+@layer jarvis-utilities {
+  .jarvis-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--jarvis-color-text-muted);
+    font-size: var(--jarvis-font-size-xs);
+    font-weight: var(--jarvis-font-weight-medium);
+    margin: var(--jarvis-space-5) 0;
+  }
+
+  .jarvis-divider::before,
+  .jarvis-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--jarvis-color-border);
+  }
+
+  .jarvis-divider:not(:empty)::before {
+    margin-right: var(--jarvis-space-3);
+  }
+
+  .jarvis-divider:not(:empty)::after {
+    margin-left: var(--jarvis-space-3);
+  }
+
+  .jarvis-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}

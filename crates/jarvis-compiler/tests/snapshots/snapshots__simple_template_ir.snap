@@ -1,0 +1,85 @@
+---
+source: tests/snapshots.rs
+expression: ir_debug
+---
+TemplateIr {
+    instructions: [
+        CreateElement {
+            id: 0,
+            tag: "section",
+            is_component: false,
+        },
+        CreateElement {
+            id: 1,
+            tag: "h1",
+            is_component: false,
+        },
+        AppendChild {
+            parent_id: 0,
+            child_id: 1,
+        },
+        CreateText {
+            id: 2,
+            content: "",
+        },
+        BindText {
+            id: 2,
+            expression: Identifier(
+                "title",
+                Span {
+                    start: 13,
+                    end: 18,
+                    line: 1,
+                    col: 14,
+                },
+            ),
+        },
+        AppendChild {
+            parent_id: 1,
+            child_id: 2,
+        },
+        CreateElement {
+            id: 3,
+            tag: "button",
+            is_component: false,
+        },
+        AppendChild {
+            parent_id: 0,
+            child_id: 3,
+        },
+        BindEvent {
+            id: 3,
+            event: "click",
+            handler: Call {
+                callee: Identifier(
+                    "save",
+                    Span {
+                        start: 37,
+                        end: 41,
+                        line: 1,
+                        col: 38,
+                    },
+                ),
+                arguments: [],
+                span: Span {
+                    start: 37,
+                    end: 43,
+                    line: 1,
+                    col: 38,
+                },
+            },
+            raw_handler: "save()",
+        },
+        CreateText {
+            id: 4,
+            content: "Save",
+        },
+        AppendChild {
+            parent_id: 3,
+            child_id: 4,
+        },
+    ],
+    root_ids: [
+        0,
+    ],
+}

@@ -1,0 +1,221 @@
+/* Component-specific styling for EmployeeLoginPage */
+.employee-login-screen {
+  width: 100%;
+}
+
+/* Quick Profiles Chips */
+.quick-presets-container {
+  padding: var(--jarvis-space-3);
+  background-color: var(--jarvis-color-surface-muted);
+  border: 1px solid var(--jarvis-color-border);
+  border-radius: var(--jarvis-radius-control);
+  margin-bottom: var(--jarvis-space-5);
+}
+
+.presets-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: var(--jarvis-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--jarvis-color-text-secondary);
+  margin-bottom: var(--jarvis-space-2);
+}
+
+.preset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--jarvis-space-2);
+}
+
+@media (max-width: 48rem) {
+  .preset-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.preset-chip {
+  padding: var(--jarvis-space-2);
+  background-color: var(--jarvis-color-surface);
+  border: 1px solid var(--jarvis-color-border);
+  border-radius: var(--jarvis-radius-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--jarvis-transition-duration);
+}
+
+.preset-chip:hover {
+  border-color: var(--jarvis-brand-primary);
+  background-color: rgba(5, 150, 105, 0.04);
+}
+
+.preset-name {
+  font-size: var(--jarvis-font-size-xs);
+  font-weight: var(--jarvis-font-weight-semibold);
+  color: var(--jarvis-color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mfa-chip {
+  font-size: 0.6rem;
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--jarvis-radius-xs);
+  font-weight: var(--jarvis-font-weight-bold);
+}
+
+.preset-dept {
+  font-size: 0.65rem;
+  color: var(--jarvis-color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.15rem;
+}
+
+/* Auxiliary Row */
+.auth-aux-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--jarvis-space-5);
+  font-size: var(--jarvis-font-size-xs);
+}
+
+.forgot-password-link {
+  background: none;
+  border: none;
+  color: var(--jarvis-brand-primary);
+  font-size: var(--jarvis-font-size-xs);
+  font-weight: var(--jarvis-font-weight-medium);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: color var(--jarvis-transition-duration);
+}
+
+.forgot-password-link:hover {
+  color: var(--jarvis-brand-primary-hover);
+  text-decoration: underline;
+}
+
+.submit-button-primary {
+  height: 2.75rem;
+  font-size: var(--jarvis-font-size-sm);
+  font-weight: var(--jarvis-font-weight-semibold);
+  border-radius: var(--jarvis-radius-control);
+  background-color: var(--jarvis-brand-primary);
+  border-color: var(--jarvis-brand-primary);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
+  transition: all var(--jarvis-transition-duration);
+}
+
+.submit-button-primary:hover:not(:disabled) {
+  background-color: var(--jarvis-brand-primary-hover);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
+}
+
+.sso-button {
+  height: 2.6rem;
+  border-radius: var(--jarvis-radius-control);
+  font-weight: var(--jarvis-font-weight-medium);
+  color: var(--jarvis-color-text-secondary);
+  border-color: var(--jarvis-color-border);
+}
+
+.sso-button:hover:not(:disabled) {
+  background-color: var(--jarvis-color-surface-muted);
+  color: var(--jarvis-color-text-primary);
+  border-color: var(--jarvis-color-border-hover);
+}
+
+/* Footer Navigation */
+.auth-footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--jarvis-space-3);
+  margin-top: var(--jarvis-space-8);
+  padding-top: var(--jarvis-space-5);
+  border-top: 1px solid var(--jarvis-color-border);
+}
+
+.auth-footer-link {
+  color: var(--jarvis-color-text-secondary);
+  text-decoration: none;
+  font-size: var(--jarvis-font-size-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--jarvis-space-1);
+  padding: 0;
+  transition: color var(--jarvis-transition-duration);
+}
+
+.auth-footer-link:hover {
+  color: var(--jarvis-brand-primary);
+}
+
+.help-link {
+  font-weight: var(--jarvis-font-weight-medium);
+  color: var(--jarvis-brand-primary);
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-2);
+  font-size: var(--jarvis-font-size-xs);
+  color: var(--jarvis-color-text-muted);
+}
+
+.bullet {
+  color: var(--jarvis-color-border);
+}
+
+.auth-compliance-tag {
+  font-family: var(--jarvis-font-mono);
+  font-size: 0.65rem;
+  color: var(--jarvis-color-text-muted);
+  background-color: var(--jarvis-color-surface-muted);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--jarvis-radius-xs);
+}
+
+/* Form Shake Animation on Validation Error */
+@keyframes jarvis-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.jarvis-form--shake {
+  animation: jarvis-shake 0.4s ease-in-out;
+}
+
+/* Enhanced PrimeNG Input Error States */
+.p-inputtext.p-invalid,
+.jarvis-password-wrapper input.p-invalid {
+  border-color: var(--jarvis-color-danger, #ef4444) !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+  background-color: rgba(254, 242, 242, 0.4) !important;
+}
+
+/* Security Lockout Warning */
+.auth-lockout-notice {
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-2);
+  padding: 0.5rem 0.75rem;
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--jarvis-radius-sm);
+  color: #b45309;
+  font-size: var(--jarvis-font-size-xs);
+  margin-bottom: var(--jarvis-space-3);
+}

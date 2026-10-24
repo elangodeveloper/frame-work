@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JARVIS Framework — PrimeNG v20 Enterprise Showcase</title>
+  <link rel="icon" type="image/svg+xml" href="../../assets/branding/favicon.svg">
+
+  <!-- PrimeIcons (Offline-first local SVG fallback + optional CDN) -->
+  <link rel="stylesheet" href="./primeicons-offline.css">
+
+  <!-- Tailwind CSS (Offline-first local stylesheet + online CDN enhancer) -->
+  <link rel="stylesheet" href="./tailwind-offline.css">
+  <script>
+    if (typeof navigator !== 'undefined' && navigator.onLine) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.tailwindcss.com';
+      script.onerror = () => {};
+      document.head.appendChild(script);
+    }
+  </script>
+
+  <style>
+    /* PrimeNG CSS variables and resets */
+    :root {
+      --p-primary-color: #10b981;
+      --p-primary-hover-color: #059669;
+      --p-primary-contrast-color: #ffffff;
+      --p-border-radius-sm: 4px;
+      --p-border-radius-md: 6px;
+      --p-border-radius-lg: 8px;
+      --p-surface-0: #ffffff;
+      --p-surface-50: #f8fafc;
+      --p-surface-100: #f1f5f9;
+      --p-surface-200: #e2e8f0;
+      --p-surface-700: #334155;
+      --p-surface-800: #1e293b;
+      --p-surface-900: #0f172a;
+      --p-text-color: #1e293b;
+      --p-text-muted-color: #64748b;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8fafc;
+      color: var(--p-text-color);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* PrimeNG Component Styles */
+    @layer primeng {
+      .p-component {
+        box-sizing: border-box;
+      }
+      .p-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.625rem 1.25rem;
+        border-radius: var(--p-border-radius-md);
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        border: 1px solid var(--p-primary-color);
+        background: var(--p-primary-color);
+        color: var(--p-primary-contrast-color);
+        transition: all 0.15s ease;
+      }
+      .p-button:hover:not(:disabled) {
+        background: var(--p-primary-hover-color);
+        border-color: var(--p-primary-hover-color);
+      }
+      .p-button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      .p-button-danger {
+        background: #ef4444;
+        border-color: #ef4444;
+        color: #ffffff;
+      }
+      .p-button-danger:hover:not(:disabled) {
+        background: #dc2626;
+        border-color: #dc2626;
+      }
+      .p-button-outlined {
+        background: transparent;
+        color: var(--p-primary-color);
+      }
+      .p-button-outlined:hover:not(:disabled) {
+        background: rgba(16, 185, 129, 0.08);
+      }
+      .p-button-text {
+        background: transparent;
+        border-color: transparent;
+        color: var(--p-text-color);
+      }
+      .p-button-text:hover:not(:disabled) {
+        background: var(--p-surface-100);
+      }
+
+      .p-inputtext {
+        padding: 0.625rem 0.875rem;
+        border: 1px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-md);
+        font-size: 0.875rem;
+        background: #ffffff;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .p-inputtext:focus {
+        border-color: var(--p-primary-color);
+        box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+      }
+      .p-inputtext.p-invalid {
+        border-color: #ef4444;
+      }
+
+      .p-select {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.625rem 0.875rem;
+        border: 1px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-md);
+        background: #ffffff;
+        cursor: pointer;
+        user-select: none;
+        min-width: 180px;
+        font-size: 0.875rem;
+      }
+      .p-select-overlay {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 4px;
+        background: #ffffff;
+        border: 1px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-md);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        z-index: 1200;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .p-select-list {
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0;
+      }
+      .p-select-option {
+        padding: 0.5rem 0.875rem;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .p-select-option:hover {
+        background: var(--p-surface-100);
+      }
+      .p-select-option-selected {
+        background: var(--p-surface-100);
+        font-weight: 600;
+        color: var(--p-primary-color);
+      }
+
+      .p-checkbox {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        user-select: none;
+      }
+      .p-checkbox-box {
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 2px solid var(--p-surface-200);
+        border-radius: var(--p-border-radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s;
+        background: #ffffff;
+      }
+      .p-checkbox-box.p-highlight {
+        background: var(--p-primary-color);
+        border-color: var(--p-primary-color);
+        color: #ffffff;
+      }
+      .p-checkbox-icon {
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+
+      .p-datatable {
+        width: 100%;
+        background: #ffffff;
+        border-radius: var(--p-border-radius-lg);
+        border: 1px solid var(--p-surface-200);
+        overflow: hidden;
+      }
+      .p-datatable-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .p-datatable th, .p-datatable td {
+        padding: 0.875rem 1.25rem;
+        text-align: left;
+        border-bottom: 1px solid var(--p-surface-200);
+        font-size: 0.875rem;
+      }
+      .p-datatable th {
+        background: var(--p-surface-50);
+        font-weight: 600;
+        color: var(--p-text-color);
+      }
+      .p-sortable-column {
+        cursor: pointer;
+      }
+      .p-sortable-column:hover {
+        background: var(--p-surface-100);
+      }
+      .p-sortable-column-icon {
+        margin-left: 0.5rem;
+        font-size: 0.75rem;
+        opacity: 0.6;
+      }
+      .p-paginator {
+        padding: 0.75rem 1.25rem;
+        background: var(--p-surface-50);
+        font-size: 0.875rem;
+        color: var(--p-text-muted-color);
+        border-top: 1px solid var(--p-surface-200);
+      }
+
+      .p-dialog-mask {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1100;
+      }
+      .p-dialog {
+        background: #ffffff;
+        border-radius: var(--p-border-radius-lg);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        min-width: 440px;
+        max-width: 90vw;
+        border: 1px solid var(--p-surface-200);
+        overflow: hidden;
+      }
+      .p-dialog-header {
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--p-surface-200);
+        font-weight: 600;
+        font-size: 1.125rem;
+      }
+      .p-dialog-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="max-w-6xl mx-auto space-y-6">
+    <!-- Header banner -->
+    <header class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="text-3xl font-extrabold text-emerald-600 tracking-tight">✦ Jarvis</span>
+          <span class="text-sm font-semibold uppercase px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">PrimeNG v20 Adapter</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">Zero RxJS</span>
+        </div>
+        <p class="text-sm text-slate-500 mt-1">Enterprise Component Suite with fine-grained reactivity powered by Jarvis Signals.</p>
+      </div>
+
+      <!-- Quick action controls -->
+      <div id="header-actions" class="flex items-center gap-3"></div>
+    </header>
+
+    <!-- Toolbar: Search, Filters & Stats -->
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-4">
+        <div id="search-container"></div>
+        <div id="filter-dept-container"></div>
+        <div id="checkbox-container"></div>
+      </div>
+      <div id="stats-container" class="text-sm text-slate-500 font-medium"></div>
+    </div>
+
+    <!-- Main Data Table -->
+    <main>
+      <div id="table-container"></div>
+    </main>
+
+    <!-- Modal Dialog Host Container -->
+    <div id="dialog-host"></div>
+  </div>
+
+  <script type="module" src="./bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "jarwis-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "jarvis": "./src/index.ts"
+  }
+}

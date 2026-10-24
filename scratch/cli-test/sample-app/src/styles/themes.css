@@ -1,0 +1,7 @@
+/* Theme presets (Aura, Lara, Dark overrides) */
+[data-theme="dark"] {
+  --jarvis-surface: #0f172a;
+  --jarvis-surface-ground: #020617;
+  --jarvis-border: #1e293b;
+  --jarvis-text-color: #f8fafc;
+}

@@ -1,0 +1,73 @@
+<section class="verify-identity-screen" aria-labelledby="mfa-heading">
+  <jarvis-auth-page-header
+    [title]="'Verify your identity'"
+    [subtitle]="'A 6-digit verification code has been dispatched to your authenticator app.'"
+    [badge]="'TWO-FACTOR CHALLENGE'"
+    [icon]="'pi pi-shield'">
+  </jarvis-auth-page-header>
+
+  <div class="jarvis-alert-banner jarvis-alert-banner--info">
+    <i class="pi pi-mobile" aria-hidden="true"></i>
+    <span>Target Identifier: <strong>{{ authService.pendingMfaIdentifier() || 'pepper@jarvis.ai' }}</strong> (Code: 849201)</span>
+  </div>
+
+  <form (submit)="handleVerify()" novalidate>
+    <div class="jarvis-form-group">
+      <label class="jarvis-form-label" for="mfa-code-input">
+        6-Digit Verification Code
+      </label>
+      <input
+        id="mfa-code-input"
+        type="text"
+        class="p-inputtext p-component text-center font-mono tracking-widest text-lg font-bold"
+        [value]="mfaCode()"
+        [class.p-invalid]="codeError()"
+        placeholder="849201"
+        maxlength="6"
+        autocomplete="one-time-code"
+        required />
+      <div *ngIf="codeError()" class="jarvis-form-error" role="alert">
+        <i class="pi pi-exclamation-circle"></i>
+        <span>{{ codeError() }}</span>
+      </div>
+    </div>
+
+    <div *ngIf="statusError()" class="jarvis-alert-banner jarvis-alert-banner--danger" role="status">
+      <i class="pi pi-exclamation-triangle" aria-hidden="true"></i>
+      <span>{{ statusError() }}</span>
+    </div>
+    <div *ngIf="statusSuccess()" class="jarvis-alert-banner jarvis-alert-banner--success" role="status">
+      <i class="pi pi-check-circle" aria-hidden="true"></i>
+      <span>{{ statusSuccess() }}</span>
+    </div>
+
+    <div class="mfa-timer-row">
+      <span class="text-xs text-slate-500">
+        {{ resendCountdown() > 0 ? 'Resend code in ' + resendCountdown() + 's' : 'Code expired' }}
+      </span>
+      <button
+        type="button"
+        class="text-xs text-emerald-600 font-semibold hover:underline"
+        [disabled]="resendCountdown() > 0"
+        (click)="resendCode()">
+        Resend Code
+      </button>
+    </div>
+
+    <button
+      type="submit"
+      class="p-button p-component w-full submit-button-primary mt-4"
+      [disabled]="remainingAttempts() === 0 || authService.isLoading()">
+      <span *ngIf="authService.isLoading()" class="pi pi-spinner pi-spin"></span>
+      <i *ngIf="!authService.isLoading()" class="pi pi-check"></i>
+      <span>Verify & Enter Workspace</span>
+    </button>
+
+    <button
+      type="button"
+      class="p-button p-component p-button-text w-full mt-3 text-slate-500"
+      (click)="navigateToLogin()">
+      <span>Cancel & Return to Login</span>
+    </button>
+  </form>
+</section>

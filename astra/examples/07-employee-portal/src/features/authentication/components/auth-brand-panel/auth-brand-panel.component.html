@@ -1,0 +1,66 @@
+<aside class="jarvis-brand-panel" aria-label="Brand and Platform Overview">
+  <div class="jarvis-architectural-grid"></div>
+
+  <div class="brand-top-bar">
+    <div class="brand-identity">
+      <div class="brand-logo-icon">
+        <svg width="34" height="34" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" fill="#0b1320" stroke="#10b981" stroke-width="3.5"/>
+          <polygon points="50,20 76,35 76,65 50,80 24,65 24,35" fill="none" stroke="#10b981" stroke-width="1.8" stroke-dasharray="3 2"/>
+          <circle cx="50" cy="50" r="14" fill="#047857" fill-opacity="0.2" stroke="#34d399" stroke-width="2.5"/>
+          <circle cx="50" cy="50" r="5" fill="#34d399"/>
+          <path d="M50 20 L50 30 M50 70 L50 80 M24 50 L34 50 M66 50 L76 50" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">JARVIS</div>
+        <div class="portal-label">WORKSPACE</div>
+      </div>
+    </div>
+    <div class="jarvis-status-badge jarvis-status-badge--success">
+      <span class="jarvis-status-dot jarvis-status-dot--pulse"></span>
+      <span>{{ securityStatus() }}</span>
+    </div>
+  </div>
+
+  <div class="brand-hero-section">
+    <h1 class="brand-headline">{{ headline() }}</h1>
+    <p class="brand-supporting-copy">{{ supportingCopy() }}</p>
+
+    <div class="brand-feature-list">
+      <div class="jarvis-feature-item">
+        <div class="jarvis-feature-icon"><i class="pi pi-compass"></i></div>
+        <div class="feature-text-box">
+          <h3 class="feature-title">One place for your work.</h3>
+          <p class="feature-desc">Unified, single-pane access across enterprise apps, repositories, and engineering tooling.</p>
+        </div>
+      </div>
+      <div class="jarvis-feature-item">
+        <div class="jarvis-feature-icon"><i class="pi pi-shield"></i></div>
+        <div class="feature-text-box">
+          <h3 class="feature-title">Secure employee access.</h3>
+          <p class="feature-desc">Zero-trust cryptographic verification, hardened sessions, and real-time posture defense.</p>
+        </div>
+      </div>
+      <div class="jarvis-feature-item sss">
+        <div class="jarvis-feature-icon"><i class="pi pi-sliders-h"></i></div>
+        <div class="feature-text-box">
+          <h3 class="feature-title">A workspace designed around you.</h3>
+          <p class="feature-desc">Fine-grained reactive signals adapt interfaces instantly to your department and clearance.</p>
+        </div>
+      </div>
+        <div class="jarvis-feature-item sss">
+        <div class="jarvis-feature-icon"><i class="pi pi-sliders-h"></i></div>
+        <div class="feature-text-box">
+          <h3 class="feature-title">A workspace designed around you.</h3>
+          <p class="feature-desc">Fine-grained reactive signals adapt interfaces instantly to your department and clearance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="brand-footer">
+    <div>SOC-2 Type II Certified · Continuous Posture Evaluation</div>
+    <div>JARVIS Framework Core v0.1.0</div>
+  </footer>
+</aside>

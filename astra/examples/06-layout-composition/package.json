@@ -1,0 +1,14 @@
+{
+  "name": "example-layout-composition",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@jarvis/core": "*",
+    "@jarvis/layout": "*",
+    "@jarvis/reactive": "*",
+    "@jarvis/renderer": "*",
+    "@jarvis/router": "*",
+    "@jarvis/styles": "*"
+  }
+}

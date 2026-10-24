@@ -1,0 +1,17 @@
+/* Component styling for AuthFormFieldComponent */
+.form-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--jarvis-space-1);
+}
+
+.required-indicator {
+  color: var(--jarvis-color-danger);
+  font-weight: var(--jarvis-font-weight-bold);
+  margin-left: 0.15rem;
+}
+
+.form-control-slot {
+  width: 100%;
+}

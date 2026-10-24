@@ -1,0 +1,86 @@
+/**
+ * JARVIS Centralized Common Component Styles
+ */
+@layer jarvis-components {
+  /* Button Abstraction */
+  .jarvis-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--jarvis-space-2);
+    padding: var(--jarvis-space-2) var(--jarvis-space-4);
+    border: var(--jarvis-border-width) solid transparent;
+    border-radius: var(--jarvis-radius-md);
+    font-family: inherit;
+    font-size: var(--jarvis-font-size-sm);
+    font-weight: 500;
+    line-height: var(--jarvis-line-height-tight);
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    transition: background-color var(--jarvis-transition-duration),
+                border-color var(--jarvis-transition-duration),
+                opacity var(--jarvis-transition-duration);
+  }
+
+  .jarvis-button--primary {
+    color: var(--jarvis-color-primary-contrast);
+    background-color: var(--jarvis-color-primary);
+    border-color: var(--jarvis-color-primary);
+  }
+  .jarvis-button--primary:hover:not(:disabled) {
+    background-color: var(--jarvis-color-primary-hover);
+    border-color: var(--jarvis-color-primary-hover);
+  }
+
+  .jarvis-button--secondary {
+    color: var(--jarvis-text-primary);
+    background-color: var(--jarvis-surface-secondary);
+    border-color: var(--jarvis-border-color);
+  }
+  .jarvis-button--secondary:hover:not(:disabled) {
+    background-color: var(--jarvis-surface-tertiary);
+  }
+
+  .jarvis-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Input Abstraction */
+  .jarvis-input {
+    display: block;
+    width: 100%;
+    padding: var(--jarvis-space-2) var(--jarvis-space-3);
+    font-family: inherit;
+    font-size: var(--jarvis-font-size-sm);
+    line-height: var(--jarvis-line-height-normal);
+    color: var(--jarvis-text-primary);
+    background-color: var(--jarvis-surface);
+    border: var(--jarvis-border-width) solid var(--jarvis-border-color);
+    border-radius: var(--jarvis-radius-md);
+    transition: border-color var(--jarvis-transition-duration),
+                box-shadow var(--jarvis-transition-duration);
+  }
+  .jarvis-input:focus {
+    outline: none;
+    border-color: var(--jarvis-color-primary);
+    box-shadow: 0 0 0 3px var(--jarvis-focus-ring-color);
+  }
+  .jarvis-input--invalid {
+    border-color: var(--jarvis-color-danger);
+  }
+
+  /* Card Abstraction */
+  .jarvis-card {
+    background-color: var(--jarvis-surface);
+    border: var(--jarvis-border-width) solid var(--jarvis-border-color-subtle);
+    border-radius: var(--jarvis-radius-lg);
+    box-shadow: var(--jarvis-shadow-sm);
+    padding: var(--jarvis-space-4);
+    transition: box-shadow var(--jarvis-transition-duration);
+  }
+  .jarvis-card:hover {
+    box-shadow: var(--jarvis-shadow-md);
+  }
+}

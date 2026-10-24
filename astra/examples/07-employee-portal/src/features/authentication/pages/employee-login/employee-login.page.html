@@ -1,0 +1,145 @@
+<section class="employee-login-screen" aria-labelledby="auth-heading">
+  <jarvis-auth-page-header
+    [title]="'Welcome back'"
+    [subtitle]="'Access your employee workspace.'"
+    [badge]="'SECURE IDENTITY GATEWAY'">
+  </jarvis-auth-page-header>
+
+  <!-- 1-Click Employee Presets -->
+  <div class="quick-presets-container">
+    <span class="presets-label">1-Click Employee Profiles:</span>
+    <div class="preset-grid">
+      <button
+        *ngFor="let user of directoryUsers"
+        type="button"
+        class="preset-chip"
+        (click)="fillQuickUser(user)">
+        <div class="preset-name">
+          {{ user.name }}
+          <span *ngIf="user.requiresMfa" class="mfa-chip">MFA</span>
+        </div>
+        <div class="preset-dept">{{ user.department }}</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Notification Banner -->
+  <div *ngIf="formError()" class="jarvis-alert-banner jarvis-alert-banner--danger" role="status">
+    <i class="pi pi-exclamation-triangle" aria-hidden="true"></i>
+    <span>{{ formError() }}</span>
+  </div>
+  <div *ngIf="formSuccess()" class="jarvis-alert-banner jarvis-alert-banner--success" role="status">
+    <i class="pi pi-check-circle" aria-hidden="true"></i>
+    <span>{{ formSuccess() }}</span>
+  </div>
+
+  <!-- Sign In Form -->
+  <form id="employee-login-form" (submit)="handleSignIn()" novalidate>
+    <!-- Identifier Field -->
+    <div class="jarvis-form-group">
+      <label class="jarvis-form-label" for="employee-identifier-input">
+        {{ orgConfig.identifierLabel }}
+      </label>
+      <input
+        id="employee-identifier-input"
+        type="text"
+        class="p-inputtext p-component"
+        [value]="identifier()"
+        [class.p-invalid]="identifierError()"
+        placeholder="{{ orgConfig.config().identifierPlaceholder }}"
+        autocomplete="username"
+        required />
+      <div *ngIf="identifierError()" class="jarvis-form-error" role="alert">
+        <i class="pi pi-exclamation-circle"></i>
+        <span>{{ identifierError() }}</span>
+      </div>
+    </div>
+
+    <!-- Password Field with Visibility Toggle -->
+    <div class="jarvis-form-group">
+      <label class="jarvis-form-label" for="employee-password-input">
+        Security Password
+      </label>
+      <div class="jarvis-password-wrapper">
+        <input
+          id="employee-password-input"
+          [type]="showPassword() ? 'text' : 'password'"
+          class="p-inputtext p-component"
+          [value]="password()"
+          [class.p-invalid]="passwordError()"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required />
+        <button
+          type="button"
+          class="jarvis-password-toggle"
+          (click)="togglePasswordVisibility()"
+          aria-label="Toggle password visibility">
+          <i [class]="showPassword() ? 'pi pi-eye-slash' : 'pi pi-eye'"></i>
+          <span>{{ showPassword() ? 'Hide' : 'Show' }}</span>
+        </button>
+      </div>
+      <div *ngIf="passwordError()" class="jarvis-form-error" role="alert">
+        <i class="pi pi-exclamation-circle"></i>
+        <span>{{ passwordError() }}</span>
+      </div>
+    </div>
+
+    <!-- Aux Row: Remember Me & Forgot Password -->
+    <div class="auth-aux-row">
+      <label class="p-checkbox p-component">
+        <input
+          type="checkbox"
+          [checked]="rememberMe()"
+          (change)="rememberMe.set($event.target.checked)" />
+        <span class="p-checkbox-label">Remember this device</span>
+      </label>
+      <button
+        type="button"
+        class="forgot-password-link"
+        (click)="navigateToForgotPassword()">
+        Forgot password?
+      </button>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      id="btn-sign-in"
+      type="submit"
+      class="p-button p-component w-full submit-button-primary"
+      [disabled]="authService.isLoading()">
+      <span *ngIf="authService.isLoading()" class="pi pi-spinner pi-spin"></span>
+      <span>{{ authService.isLoading() ? 'Authenticating...' : 'Sign In to Workspace' }}</span>
+      <i *ngIf="!authService.isLoading()" class="pi pi-arrow-right"></i>
+    </button>
+
+    <!-- Divider -->
+    <div class="jarvis-divider">OR SECURE SSO</div>
+
+    <!-- SSO Button -->
+    <button
+      id="btn-sso"
+      type="button"
+      class="p-button p-component p-button-outlined w-full sso-button"
+      (click)="handleSsoSignIn()"
+      [disabled]="authService.isLoading()">
+      <i class="pi pi-id-card"></i>
+      <span>{{ orgConfig.config().ssoProviderName }}</span>
+    </button>
+  </form>
+
+  <!-- Footer Links -->
+  <footer class="auth-footer-nav">
+    <button type="button" class="auth-footer-link help-link" (click)="openHelpModal()">
+      <i class="pi pi-question-circle"></i>
+      <span>Need help signing in?</span>
+    </button>
+    <div class="legal-links">
+      <a [href]="orgConfig.config().privacyPolicyUrl" target="_blank" rel="noopener" class="auth-footer-link">Privacy Policy</a>
+      <span class="bullet" aria-hidden="true">·</span>
+      <a [href]="orgConfig.config().termsOfServiceUrl" target="_blank" rel="noopener" class="auth-footer-link">Terms</a>
+      <span class="bullet" aria-hidden="true">·</span>
+      <span class="auth-compliance-tag">{{ orgConfig.config().version }}</span>
+    </div>
+  </footer>
+</section>

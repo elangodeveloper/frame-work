@@ -1,0 +1,521 @@
+/**
+ * Employee Dashboard Stylesheet
+ * Uses centralized JARVIS design tokens (--jarvis-*) and responsive design.
+ */
+
+.employee-dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarvis-space-6);
+  color: var(--jarvis-color-text-primary);
+}
+
+/* Top Identity Header Bar */
+.dashboard-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--jarvis-space-4);
+  padding: var(--jarvis-space-4) var(--jarvis-space-5);
+  background-color: var(--jarvis-color-surface);
+  border: 1px solid var(--jarvis-color-border);
+  border-radius: var(--jarvis-radius-card);
+  box-shadow: var(--jarvis-shadow-subtle);
+}
+
+.employee-identity-block {
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-4);
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.employee-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--jarvis-radius-full);
+  object-fit: cover;
+  border: 2px solid var(--jarvis-brand-primary);
+  background-color: var(--jarvis-color-surface-muted);
+}
+
+.avatar-status-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--jarvis-color-success);
+  border: 2px solid var(--jarvis-color-surface);
+  border-radius: var(--jarvis-radius-full);
+}
+
+.employee-name-row {
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-3);
+}
+
+.employee-name {
+  font-size: var(--jarvis-font-size-xl);
+  font-weight: var(--jarvis-font-weight-bold);
+  color: var(--jarvis-color-text-primary);
+  margin: 0;
+  line-height: var(--jarvis-line-height-tight);
+}
+
+.clearance-badge {
+  font-size: 0.65rem;
+  font-weight: var(--jarvis-font-weight-extrabold);
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--jarvis-radius-full);
+  background-color: rgba(5, 150, 105, 0.12);
+  color: var(--jarvis-brand-primary);
+  border: 1px solid rgba(5, 150, 105, 0.25);
+}
+
+.employee-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--jarvis-space-2);
+  font-size: var(--jarvis-font-size-xs);
+  color: var(--jarvis-color-text-secondary);
+  margin-top: 0.2rem;
+}
+
+.meta-separator {
+  color: var(--jarvis-color-border);
+}
+
+.dashboard-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-2);
+}
+
+/* 4 Executive KPI Metrics Grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--jarvis-space-4);
+}
+
+@media (max-width: 64rem) {
+  .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 36rem) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kpi-card {
+  padding: var(--jarvis-space-4);
+  background-color: var(--jarvis-color-surface);
+  border: 1px solid var(--jarvis-color-border);
+  border-radius: var(--jarvis-radius-card);
+  box-shadow: var(--jarvis-shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--jarvis-space-2);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--jarvis-transition-duration), box-shadow var(--jarvis-transition-duration);
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(15, 23, 42, 0.08);
+}
+
+.kpi-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-title {
+  font-size: var(--jarvis-font-size-xs);
+  font-weight: var(--jarvis-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--jarvis-color-text-secondary);
+}
+
+.kpi-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--jarvis-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--jarvis-font-size-sm);
+}
+
+.kpi-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--jarvis-space-2);
+}
+
+.kpi-value {
+  font-size: var(--jarvis-font-size-2xl);
+  font-weight: var(--jarvis-font-weight-extrabold);
+  color: var(--jarvis-color-text-primary);
+  line-height: var(--jarvis-line-height-tight);
+}
+
+.kpi-trend {
+  font-size: 0.72rem;
+  font-weight: var(--jarvis-font-weight-semibold);
+}
+
+.kpi-trend--up {
+  color: var(--jarvis-color-success);
+}
+
+.kpi-trend--down {
+  color: var(--jarvis-color-danger);
+}
+
+.kpi-trend--neutral {
+  color: var(--jarvis-color-text-secondary);
+}
+
+.kpi-subtext {
+  font-size: 0.72rem;
+  color: var(--jarvis-color-text-muted);
+}
+
+/* Dashboard Generic Card Container */
+.dashboard-card {
+  padding: var(--jarvis-space-5);
+  background-color: var(--jarvis-color-surface);
+  border: 1px solid var(--jarvis-color-border);
+  border-radius: var(--jarvis-radius-card);
+  box-shadow: var(--jarvis-shadow-subtle);
+}
+
+/* Projects Section & Header */
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--jarvis-space-4);
+  margin-bottom: var(--jarvis-space-4);
+  padding-bottom: var(--jarvis-space-3);
+  border-bottom: 1px solid var(--jarvis-color-border);
+}
+
+.section-title {
+  font-size: var(--jarvis-font-size-lg);
+  font-weight: var(--jarvis-font-weight-bold);
+  color: var(--jarvis-color-text-primary);
+  margin: 0;
+}
+
+.section-subtitle {
+  font-size: var(--jarvis-font-size-xs);
+  color: var(--jarvis-color-text-secondary);
+  margin-top: 0.2rem;
+}
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--jarvis-space-3);
+}
+
+.search-input-box {
+  position: relative;
+  min-width: 240px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--jarvis-color-text-muted);
+  font-size: var(--jarvis-font-size-xs);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.search-input-box input {
+  padding-left: 2.2rem !important;
+}
+
+.status-filter-pills {
+  display: flex;
+  align-items: center;
+  background-color: var(--jarvis-color-surface-muted);
+  padding: 2px;
+  border-radius: var(--jarvis-radius-control);
+  border: 1px solid var(--jarvis-color-border);
+}
+
+.status-pill {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 0.75rem;
+  font-size: var(--jarvis-font-size-xs);
+  font-weight: var(--jarvis-font-weight-medium);
+  color: var(--jarvis-color-text-secondary);
+  border-radius: calc(var(--jarvis-radius-control) - 2px);
+  cursor: pointer;
+  transition: all var(--jarvis-transition-duration);
+}
+
+.status-pill:hover {
+  color: var(--jarvis-color-text-primary);
+}
+
+.status-pill.active {
+  background-color: var(--jarvis-color-surface);
+  color: var(--jarvis-brand-primary);
+  font-weight: var(--jarvis-font-weight-bold);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Data Table */
+.projects-table-container {
+  overflow-x: auto;
+  border-radius: var(--jarvis-radius-control);
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--jarvis-font-size-xs);
+}
+
+.dashboard-table th {
+  padding: var(--jarvis-space-3) var(--jarvis-space-4);
+  background-color: var(--jarvis-color-surface-muted);
+  color: var(--jarvis-color-text-secondary);
+  font-weight: var(--jarvis-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--jarvis-color-border);
+}
+
+.dashboard-table td {
+  padding: var(--jarvis-space-3) var(--jarvis-space-4);
+  border-bottom: 1px solid var(--jarvis-color-border);
+  vertical-align: middle;
+}
+
+.dashboard-table tr:hover td {
+  background-color: rgba(5, 150, 105, 0.02);
+}
+
+.project-code-tag {
+  font-family: var(--jarvis-font-mono);
+  font-weight: var(--jarvis-font-weight-bold);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--jarvis-radius-xs);
+  background-color: var(--jarvis-color-surface-muted);
+  border: 1px solid var(--jarvis-color-border);
+  color: var(--jarvis-color-text-primary);
+}
+
+.project-title {
+  font-weight: var(--jarvis-font-weight-semibold);
+  color: var(--jarvis-color-text-primary);
+  display: block;
+}
+
+.project-dept {
+  color: var(--jarvis-color-text-muted);
+  font-size: 0.7rem;
+}
+
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--jarvis-radius-full);
+  font-size: 0.68rem;
+  font-weight: var(--jarvis-font-weight-bold);
+  letter-spacing: 0.03em;
+}
+
+.status-tag--ACTIVE {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #059669;
+}
+
+.status-tag--REVIEW {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+.status-tag--DEPLOYED {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.status-tag--PAUSED {
+  background-color: rgba(100, 116, 139, 0.12);
+  color: #64748b;
+}
+
+.progress-track {
+  width: 100px;
+  height: 6px;
+  background-color: var(--jarvis-color-surface-muted);
+  border-radius: var(--jarvis-radius-full);
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: var(--jarvis-space-2);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--jarvis-brand-primary), var(--jarvis-brand-accent));
+  border-radius: var(--jarvis-radius-full);
+  transition: width 0.3s ease;
+}
+
+/* Split Bottom Grid */
+.bottom-split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--jarvis-space-4);
+}
+
+@media (max-width: 48rem) {
+  .bottom-split-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--jarvis-space-3);
+  padding-bottom: var(--jarvis-space-2);
+  border-bottom: 1px solid var(--jarvis-color-border);
+}
+
+.card-title {
+  font-size: var(--jarvis-font-size-sm);
+  font-weight: var(--jarvis-font-weight-bold);
+  display: flex;
+  align-items: center;
+  gap: var(--jarvis-space-2);
+  margin: 0;
+}
+
+.audit-counter-badge {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.45rem;
+  background-color: rgba(5, 150, 105, 0.1);
+  color: var(--jarvis-brand-primary);
+  border-radius: var(--jarvis-radius-xs);
+  font-weight: var(--jarvis-font-weight-bold);
+}
+
+.audit-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarvis-space-2);
+}
+
+.audit-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--jarvis-space-2);
+  padding: var(--jarvis-space-2) 0;
+  border-bottom: 1px dashed var(--jarvis-color-border);
+  font-size: var(--jarvis-font-size-xs);
+}
+
+.audit-item:last-child {
+  border-bottom: none;
+}
+
+.audit-event-title {
+  font-weight: var(--jarvis-font-weight-medium);
+  color: var(--jarvis-color-text-primary);
+}
+
+.audit-event-meta {
+  color: var(--jarvis-color-text-muted);
+  font-size: 0.7rem;
+}
+
+/* Quick Tools Grid */
+.quick-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--jarvis-space-3);
+}
+
+.quick-tool-tile {
+  padding: var(--jarvis-space-3);
+  background-color: var(--jarvis-color-surface-muted);
+  border: 1px solid var(--jarvis-color-border);
+  border-radius: var(--jarvis-radius-control);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all var(--jarvis-transition-duration);
+}
+
+.quick-tool-tile:hover {
+  background-color: var(--jarvis-color-surface);
+  border-color: var(--jarvis-brand-primary);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);
+}
+
+.tool-title {
+  font-weight: var(--jarvis-font-weight-semibold);
+  font-size: var(--jarvis-font-size-xs);
+  color: var(--jarvis-color-text-primary);
+}
+
+.tool-desc {
+  font-size: 0.7rem;
+  color: var(--jarvis-color-text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Profile Edit Modal Form with PrimeNG */
+.profile-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jarvis-space-4);
+  padding: var(--jarvis-space-2) 0;
+}
+
+.modal-footer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--jarvis-space-2);
+  margin-top: var(--jarvis-space-4);
+  padding-top: var(--jarvis-space-3);
+  border-top: 1px solid var(--jarvis-color-border);
+}

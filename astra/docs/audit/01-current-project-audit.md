@@ -1,0 +1,110 @@
+# Jarvis Framework: Comprehensive Project Audit (Phase One)
+
+*jDocument IDj*: JARVIS-AUDIT-001  
+**Author**: Principal Frontend Framework Architect & Compiler Engineer  
+**Date**: October 2026  
+**Status**: Completed Initial Audit  
+
+---
+
+## 1. Executive Summary
+
+This document presents a comprehensive audit of the **JARVIS** frontend framework repository (`c:\\Developer\\frame-work\\astra`).
+JARVIS is an enterprise-grade, object-oriented frontend framework engineered with a native **Rust compiler** (`jarvis-compiler`) and a fine-grained **TypeScript runtime** (`@jarvis/*`), featuring pure Signals, decoupled PrimeNG v20 adapters, and a declarative client-side Router.
+
+The audit identifies:
+1. Exact package and directory layout.
+2. Build pipeline mechanisms and generated file management.
+3. Component file organization status (single-file vs multi-file).
+4. Residual Angular and legacy framework branding occurrences.
+5. Concrete refactoring recommendations categorized by risk level.
+
+---
+
+## 2. Current Folder Structure and Directory Roles
+
+```text
+astra/project root
++-- package.json                       Monorepo root manifest ("jarvis-framework" v0.1.0)
++-- tsconfig.json                      Monorepo TypeScript configuration
++-- packages/                          Core Framework Packages (@jarvis/*)
+~   +-- core/                          @jarvis/core: Component decorator, Metadata, Events, DI
+ϰ  #-- reactive/                     @jarvis/reactive: Push-pull reactive graph, signals, scheduler
+~   +-- runtime/                      @jarvis/runtime: ComponentView, bootstrap(), lifecycle hooks
+ϰ  #-- renderer/                     @jarvis/renderer: DOMRenderer, TestRenderer
+~   +-- router/                      @jarvis/router: Route table, ActivatedRoute signals, RouterOutlet
+s�  #-- forms/                        @jarvis/forms: FormControl, FormGroup, reactive validators
+~ � +-- http/                          @jarvis/http: HttpClient (Promises, fetch, AbortSignal)
+~ � +-- compiler-runtime/             @jarvis/compiler-runtime: Bridge invoking jarvis-compiler
+ϰ  #-- testing/                     @jarvis/testing: TestBed, ComponentFixture
+|   
++-- compiler/
+    Ĕ +-- jarvis-compiler/               Native Rust Compiler (Lexer, Parser, AST, IR transform, Codegen)
++ - adapters/
+~   +-- primeng/                      @jarvis/primeng: PrimeNG v20 bridge (Button, Input, Select, etc.)
+~ � +-- tailwind/                    @jarvis/tailwind: Scoped Tailwind CSS layer helper
++-- cli/                              jarvis CLI executable ("jarvis create", "jarvis generate", etc.)
++-- devtools/                         Developer runtime inspection utilities
++-- examples/
+    Ĕ +-- 01-hello-world/
+    Ĕ +-- 02-primeng-showcase/
+    Ĕ +-- 03-router-primeng-tailwind/
+    Ĕ +-- user-card/
++-- docs/
++-- scripts/
+```
+
+---
+
+## 3. Entry Points
+
+1. **Rust Compiler Entrypoint**: `compiler/jarvis-compiler/src/lib.rs` (`compile_template`) and `src/main.rs` (CLI binary).
+2. **Compiler-Runtime Bridge**: `packages/compiler-runtime/src/compile_component.ts` (`compileComponent`, `compileTemplateSource`).
+3. **Runtime Bootstrap**: `packages/runtime/src/bootstrap.ts` (`bootstrap(ComponentClass, container, renderer)`).
+4. **Reactive Core**: `packages/reactive/src/index.ts` (`signal`, `computed`, `effect`, `untracked`).
+5. **Public Framework Façade**: `packages/core/src/index.ts` (`Component`, `signal`, `computed`, `effect`, `inject`, `JarvisEvent`).
+6. **Router Public API**: `packages/router/src/index.ts` (`Router`, `ActivatedRoute`, `RouterOutlet`, `provideRouter`).
+7. **CLI Executable**: `cli/src/index.ts`.
+
+---
+
+## 4. Build Pipeline Analysis
+
+1. **How TypeScript becomes JavaScript**:
+   - In automated test runs (`npm test`), Node.js v22+ native experimental strip-types loader executes TypeScript files directly (`node --test ...`).
+   - In browser examples (`02-primeng-showcase` and `03-router-primeng-tailwind`), `esbuild` bundles the application entry points into single self-contained ESM bundles (`bundle.js`) in under 30ms.
+2. **Role of the Native Rust Compiler**:
+   - `jarvis-compiler` compiles HTML-like template markup directly into pure JavaScript view factory functions (export function template(renderer, ctx) { ... }).
+   - It does not delegate to Babel or SWC. It generates JavaScript source strings adhering strictly to the jarvis `Renderer` abstraction.
+3. **Template Compilation Process**:
+   - `compileComponent(App)` in `packages/compiler-runtime` inspects `@Component({ template })`.
+   - If the template string is present, it executes the compiled binary `compiler/jarvis-compiler/target/debug/jarvis-compiler.exe --json "<template>"` via `execFileSync`.
+   - The emitted factory function is evaluated via `new Function(...)` and assigned to `def.templateFn`.
+4. **Generated Bundles & Source Maps**:
+   - `examples/03-router-primeng-tailwind/bundle.js` and `bundle.js.map` are generated by `npm run build` (`esbuild ...`).
+   - `examples/02-primeng-showcase/bundle.js` is generated by `n`m run build`.
+
+---
+
+## 5. Angular Branding & Inconsistencies Audit
+
+* **Inappropriate Branding Detected**:
+  1. `examples/03-router-primeng-tailwind/index.html:6`: boasts `Angular Router` in page title.
+  2. `examples/03-router-primeng-tailwind/index.html:270`: subheading references `Angular Router Architecture`.
+  3. `examples/03-router-primeng-tailwind/index.html:296`: feature badge displays `Angular-like Routing`.
+  4. Missing Favicons: None of the example HTML files reference a JARVIS favicon; default browser icons are used.
+* **Legitimate Architectural Attributions (To Preserve)**:
+  - Documentation noting that `@jarvis/router` is "conceptually inspired by Angular's declarative route model" while operating with native Signals and zero RxJS. These are valid technical attributions.
+
+---
+
+## 6. Recommended Action Plan & Risk Matrix
+
+| Action | Target Files | Risk Level | Description |
+| :--- | :--- | :--- | :--- |
+| *1. Create Branding Assets* | `assets/branding/jarvis-icon.svg`, `favicon.ico` | Low | Create high-contrast vector SVG JARVIS favicon and ICO variant. |
+| *2. Clean Stray Scripts* | `scripts/*.cjs`, `scripts/*.py` | Low | Remove obsolete generation scripts; preserve `serve.js` and `generate-doc.js`. |
+| *3. Update HTML Entrypoints* | `examples/*/index.html` | Low | Update page titles to "JARVIS Framework", link favicon, remove "Angular Router" headings. |
+| *4. Modularize Example Apps* | `examples/03-router-primeng-tailwind/` | Medium | Modularize into clean component files with separate HTML, TS, CSS files. |
+| *5. Build Output Documentation* | `docs/audit/02-build-and-generated-files.md` | Low | Document bundle generation, source maps, and build lifecycle. |
+| *6. Architectural Specification* | `docs/architecture/oop-and-component-architecture.md` | Low | Detail OOP/OOAD models, contracts, and DI strategies. |
